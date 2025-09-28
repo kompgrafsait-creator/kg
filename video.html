@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Задания — CG Studio</title>
+  <style>
+    :root{--pink:#ff4081;--pink-dark:#ff1c63}
+    *{box-sizing:border-box}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("fon.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      min-height:100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;left: 0;width: 100%;height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+    header{position:fixed;top:0;left:0;right:0;backdrop-filter:blur(6px);
+      background:linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.25));
+      border-bottom:1px solid rgba(255,255,255,0.04);z-index:1000}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{font-weight:700;color:var(--pink)}
+    nav a{color:inherit;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--pink)}
+    main{padding-top:72px}
+    section{padding:60px 20px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    h1{text-align:center;margin:0 0 18px;text-shadow:0 0 20px rgba(255,64,129,0.12)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:20px}
+    .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px;padding:18px;backdrop-filter:blur(6px);
+      transition:transform .25s;display:flex;flex-direction:column;gap:12px}
+    .card:hover{transform:translateY(-6px)}
+    .card h4{color:#80d8ff;margin:0 0 8px}
+    .card p{margin:0 0 12px;color:#d0d0d3}
+    .video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+    .caption{font-size:13px;color:#bfc7cd;margin-top:6px}
+    .back{display:inline-block;margin:28px auto 0;padding:10px 18px;background:#1976d2;border-radius:10px;color:#fff;text-decoration:none;font-weight:700}
+    footer{padding:18px 20px;text-align:center;color:#a9a9ac;border-top:1px solid rgba(255,255,255,0.03)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">CG</div>
+        <div>
+          <a href="index.html">Главная</a>&nbsp;&nbsp;
+          <a href="topics.html">Разделы</a>&nbsp;&nbsp;
+          <a href="tasks.html">Лабораторные работы</a>&nbsp;&nbsp;
+          <a href="vopros.html">Вопросы</a>&nbsp;&nbsp;
+          <a href="test.html">Тесты</a>&nbsp;&nbsp;
+          <a href="video.html">Видео материалы</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-inner">
+        <h1>Разделы и видео-материалы</h1>
+        <div class="grid">
+
+          <!-- Раздел 1 -->
+          <div class="card">
+            <h4>Раздел 1. Виды компьютерной графики</h4>
+            <p>РО1: Создавать визуальный дизайн элементов графического пользовательского интерфейса (Photoshop).</p>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/kRlD-GVG9Q4" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Видео: Дизайн сайта с нуля в Adobe Photoshop CC</div>
+          </div>
+
+          <!-- Раздел 2 -->
+          <div class="card">
+            <h4>Раздел 2. Adobe Photoshop</h4>
+            <p>РО2: Подготавливать графические материалы для включения в графический интерфейс.</p>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/4E8sr4QS7OI" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Видео: Учим Photoshop за 1 час! От Профессионала</div>
+          </div>
+
+          <!-- Раздел 3 -->
+          <div class="card">
+            <h4>Раздел 3. Adobe Photoshop</h4>
+            <p>РО3: Подготавливать макеты дизайна.</p>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/yvgoZvgCB94" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Видео: Photoshop для веб-дизайнера. От нуля до готового макета</div>
+          </div>
+
+          <!-- Раздел 3 (Illustrator) -->
+          <div class="card">
+            <h4>Раздел 3. Adobe Illustrator</h4>
+            <p>РО3: Подготавливать макеты дизайна.</p>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/jS3pPFMNL1s" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Видео: Как подготовить макет к печати в Adobe Illustrator</div>
+          </div>
+
+          <!-- Раздел 4 -->
+          <div class="card">
+            <h4>Раздел 4. КОМПАС-3D</h4>
+            <p>РО4: Подготавливать графические материалы для включения в графический интерфейс.</p>
+            <div class="video-wrap">
+              <iframe src="https://youtu.be/xlrqkvU12ko?si=oiTdbIbdTRAabdfV" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Видео: Компас 3D. Базовый курс. Элементы интерфейса</div>
+          </div>
+
+          <!-- Раздел 5 -->
+          <div class="card">
+            <h4>Раздел 5. AutoCAD</h4>
+            <p>РО5: Рисование, работа со слоями, 2D-3D, создание объектов.</p>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/iKFqTS3ZzVM" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Видео: AutoCAD. Слои и 3D моделирование</div>
+          </div>
+
+          <!-- Раздел 6 -->
+          <div class="card">
+            <h4>Раздел 6. Adobe InDesign</h4>
+            <p>РО6: Подготавливать макеты дизайна.</p>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/sIml00I0BfU" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Видео: Конструирование дизайн-макета журнального издания в Adobe InDesign</div>
+          </div>
+
+          <!-- Раздел 7 -->
+          <div class="card">
+            <h4>Раздел 7. Мультимедийные приложения</h4>
+            <p>РО7: Возможность работы с форматами файлов.</p>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/RjS8ZPYmHOc" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Видео: Форматы файлов и работа в Adobe Media Encoder</div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:18px">
+          <a class="back" href="index.html">⬅ Назад на главную</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2025 Компьютерная графика. Все права защищены.</footer>
+</body>
+</html>
