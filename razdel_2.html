@@ -3,8 +3,51 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Темы — CG Studio</title>
+  <title data-translate="title">Темы — CG Studio</title>
   <style>
+    /* Стили для переключателя языков */
+    .lang-switcher {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 8px;
+        backdrop-filter: blur(6px);
+        z-index: 999;
+        box-shadow: 0 8px 20px rgba(255, 64, 129, 0.12);
+    }
+
+    .lang-btn {
+        padding: 8px 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-radius: 8px;
+        margin: 0 2px;
+        transition: all 0.3s;
+        color: #d0d0d3;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .lang-btn.active {
+        background: var(--pink);
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
+    }
+
+    .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--pink);
+    }
+
+    .lang-btn.active:hover {
+        background: var(--pink-dark);
+        color: white;
+    }
+
     .faq-item{background:rgba(0,0,0,0.45);padding:14px;border-radius:10px;margin-bottom:12px;cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
     .faq-item h4{margin:0;color:var(--pink)}
     .faq-item .answer{display:none;margin-top:10px;color:#bdbcc0}
@@ -72,22 +115,28 @@
   </style>
 </head>
 <body>
+  <!-- Переключатель языков -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="kz">KZ</button>
+  </div>
+
   <header>
     <div class="container">
       <nav>
         <div class="logo">CG</div>
          <div>
-          <a href="index.html">Главная</a>
+          <a href="index.html" data-translate="nav_home">Главная</a>
           &nbsp;&nbsp;
-          <a href="topics.html">Разделы</a>
+          <a href="topics.html" data-translate="nav_topics">Разделы</a>
           &nbsp;&nbsp;
-          <a href="tasks.html">Лабораторные работы</a>
+          <a href="tasks.html" data-translate="nav_labs">Презентации</a>
           &nbsp;&nbsp;
-          <a href="vopros.html">Вопросы</a>
+          <a href="vopros.html" data-translate="nav_questions">Вопросы</a>
           &nbsp;&nbsp;
-          <a href="test.html">Тесты</a>
+          <a href="test.html" data-translate="nav_tests">Тесты</a>
           &nbsp;&nbsp;
-          <a href="video.html">Видео материалы</a>
+          <a href="video.html" data-translate="nav_video">Видео материалы</a>
         </div>
       </nav>
     </div>
@@ -96,56 +145,309 @@
   <main>
     <section>
       <div class="section-inner">
-        <h1>Темы курса</h1>
+        <h1 data-translate="page_title">Темы курса</h1>
         
         <div class="grid">
-                      <div class="card">
-            <h4>Тема 3</h4>
-            <p>Верстка в CorelDraw </p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/1pOZGcR2ToDECOJ6YSNi8DeiDLpQnub5g/edit" download>📄 Открыть задание</a>
+          <div class="card">
+            <h4 data-translate="practice7_title">Практическая работа № 7</h4>
+            <p data-translate="practice7_desc">знакомство с программой After Effects</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1FMPL_oEA8uAInJRMxQRYDzQiCypSeIDtJ7SeyUJvEkY/edit?tab=t.0#heading=h.8i37z7m36rii"
+               data-kz="https://docs.google.com/document/d/17aFsxuyrunrgrMj9KBrn3UxMMO4haaMuX3ofHvFWXNo/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
           </div>
-                      <div class="card">
-            <h4>Тема 4</h4>
-            <p>Создание логотипа фирмы </p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/1zfbYPSU_Rr6stlcVu3C2maehPJWy77lu/edit" download>📄 Открыть задание</a>
+          <div class="card">
+            <h4 data-translate="practice8_title">Практическая работа № 8</h4>
+            <p data-translate="practice8_desc">элементы интерфейса (панели, таймлайн, композиция)</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/13m5tbn9r5hsR-FSv-KZLZ8M9ZlvhqWQGl4Ok0tFDqJE/edit?tab=t.0#heading=h.xstjvqxi84ld"
+               data-kz="https://docs.google.com/document/d/1rjHQz9f2jGiV44zrqsOPYniT3iHWHUG6tucrQEGjpG0/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
           </div>
-                      <div class="card">
-            <h4>Тема 5</h4>
-            <p>Работа с объектами </p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/1Ml5IxeppzZNGpbHi76gYfpHBeQ3dAafK/edit#bookmark=id.pr5yj3bpkgej" download>📄 Открыть задание</a>
+          <div class="card">
+            <h4 data-translate="practice9_title">Практическая работа № 9</h4>
+            <p data-translate="practice9_desc">создание композиции (композиции)</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/18sBOXWHf1WkMN2HJ7-ZS0tZXVnd1nzJoZfeXgRojgMU/edit?tab=t.0#heading=h.o9oxhd7lgh9h"
+               data-kz="https://docs.google.com/document/d/1RhojkkfiEB8EK4VyZrP1xvWP3jiKwkwpI-LpAnQdBME/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
           </div>
-                      <div class="card">
-            <h4>Тема 6</h4>
-            <p>Фотоманипуляция </p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/1jutizDNvuwZDyNwT3vmV2QWlJhXeiDs5/edit?usp=drive_web&ouid=111104216018894944267&rtpof=true" download>📄 Открыть задание</a>
+          <div class="card">
+            <h4 data-translate="practice10_title">Практическая работа № 10</h4>
+            <p data-translate="practice10_desc">Работа со слоями (Layers: Text, Solid, Null, Shape)</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1rkdM2fIKFDw6C1BPXTxtiJjj-ZmaD2z6aVc4Oh67nnE/edit?tab=t.0#heading=h.jvzxbdai6yc1"
+               data-kz="https://docs.google.com/document/d/1UP-9EsfnnhW_x7NbEvrTIhBiem9xHIm5mfYZod3lCiA/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
           </div>
-                      <div class="card">
-            <h4>Практическая №3</h4>
-            <p>Каналы и альфа-каналы в  Photoshop. </p>
-            <br><br>
-            <a class="btn" href="https://docs.google.com/document/d/1169ptlxm3ipa2bMeEMXJt1JIhHoFKce9/edit" download>📄 Открыть задание</a>
+          <div class="card">
+            <h4 data-translate="practice11_title">Практическая работа № 11</h4>
+            <p data-translate="practice11_desc">временная шкала и ключевые кадры</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1Esj5VK3K9L8fwscoAbYNIOGWv76mcttDZUC-c7x_U9g/edit?tab=t.0#heading=h.5geq1kz6txvs"
+               data-kz="https://docs.google.com/document/d/1MqF876si92uWdozGONyvcOR4WW05dwHJFDtNARrqMt4/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
           </div>
-                      <div class="card">
-            <h4>Практическая №4</h4>
-            <p>Графический редактор CorelDraw. Построение геометрических примитивов </p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/1c278lxHQrCnKb22BJEmoOt431Y1DJuoj/edit" download>📄 Открыть задание</a>
+          <div class="card">
+            <h4 data-translate="practice12_title">Практическая работа № 12</h4>
+            <p data-translate="practice12_desc">основы анимации. Свойства Transform.</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1LwYQhTrFZJK2t-o7B3p6aYHz_CIQL14O57jhYfS_6wg/edit?tab=t.0#heading=h.bbwjj5ahysmp"
+               data-kz="https://docs.google.com/document/d/1YT0UbM7NQBjBbeM8YbDNBmQpY8bpEyijzHSt8d7awVY/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
           </div>
-                      <div class="card">
-            <h4>Практическая №5 </h4>
-            <p>Создание макета пригласительного билета редакторе CorelDraw</p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/15oPBfmS1ZIvqa5Ws6mTa4wFnjXNgIvLi/edit" download>📄 Открыть задание</a>
+          <div class="card">
+            <h4 data-translate="practice13_title">Практическая работа № 13</h4>
+            <p data-translate="practice13_desc">Easy Ease и графический редактор</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1LALC8_Zi1vg5SMzyMQ2AkEYGe_oaF7FsBLaUU6qxX3Y/edit?tab=t.0#heading=h.h5hkyc89t7k8"
+               data-kz="https://docs.google.com/document/d/1AVepRXwVWk3sgV1ngo-KFe82pTlAIIufc-LKsAPIe8A/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
           </div>
+          <div class="card">
+            <h4 data-translate="practice14_title">Практическая работа № 14</h4>
+            <p data-translate="practice14_desc">ввод и обработка текста и анимация</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1wpOXauWP_xSiyjVfAIZrgapfq6HhJnfGkWC8Zvgj-Cs/edit?tab=t.0#heading=h.i6vo80teoelg"
+               data-kz="https://docs.google.com/document/d/1puNRDG_4SfymZNJN2V9DMiKXkDsSkDsgQpjc3ztfaVE/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+          <div class="card">
+            <h4 data-translate="practice15_title">Практическая работа № 15</h4>
+            <p data-translate="practice15_desc">Shape Layer и маски и анимация</p> 
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1cPumvUdgnYND4AmpJGrKmmOfyWbLZRjjb9lP3UAUoR4/edit?tab=t.0#heading=h.rrb0p68vt0yt"
+               data-kz="https://docs.google.com/document/d/1LUATaLEU04U58vWPfl86tUwwRuNmDbeGhdlPPixRrlQ/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+          <div class="card">
+            <h4 data-translate="practice16_title">Практическая работа № 16</h4>
+            <p data-translate="practice16_desc">Cредства маски (Mask). Track Matte.</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/19SD0gE4BDvE1fi0tycrMep49cS7b7tH4YljSdK6cdMk/edit?tab=t.0#heading=h.93jwbw6decuc"
+               data-kz="https://docs.google.com/document/d/1Kk2uWxb1stN5GDSBz0KaLGA_L8WFwGJ2V9ZjEuoT3uE/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+          <div class="card">
+            <h4 data-translate="practice17_title">Практическая работа № 17</h4>
+            <p data-translate="practice17_desc">Применение эффектов</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1rTdnO-6fHxG2sojXjYbs2rFH2WNkqA3tO6-aDcPEh8U/edit?tab=t.0#heading=h.ze4ahen5wgb5"
+               data-kz="https://docs.google.com/document/d/11yImDlbC7yxrjRIPw0CCVcuNk51G3W91CZRvSWkMNmM/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+          <div class="card">
+            <h4 data-translate="practice18_title">Практическая работа № 18</h4>
+            <p data-translate="practice18_desc">Различные видеоэффекты (Blur, Glow, Color Correction)</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1ClKEg4nMl2E8TTDq-Z-umhnEmYamezmJFK2bPelTw6E/edit?tab=t.0#heading=h.9j9v47tbn52w"
+               data-kz="https://docs.google.com/document/d/1lKCBfK4UkKlqzTsOmANDo2o1uDCjo8pjlGySXvMKWSQ/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+          <div class="card">
+            <h4 data-translate="practice19_title">Практическая работа № 19</h4>
+            <p data-translate="practice19_desc">Добавление 3D слоев. Виртуальная камера и свет</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1cbQLbPO4zmUWGeBG6D0g0VhQq6I-sa_cs7TVN9HBAKw/edit?tab=t.0#heading=h.mvbkwlxtnmez"
+               data-kz="https://docs.google.com/document/d/1PVzz-Se0eVmNzqyY6vvQ5AcUnkyzh5u3ZDaa5zVWFV8/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+          <div class="card">
+            <h4 data-translate="practice20_title">Практическая работа № 20</h4>
+            <p data-translate="practice20_desc">Применение Depth of Field. Motion Tracking</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1GT3rnoqLkcABSWg7cgln5EmLn8ed2Uf7PITsYYAI9EA/edit?tab=t.0"
+               data-kz="https://docs.google.com/document/d/1ocJAmq_KRMbOTJODYtmSjIqyhTXV6SgjCmaEho8zfl8/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+          
+        </div>
+                <div style="text-align:center">
+          <a class="back" href="index.html" data-translate="btn_back">⬅ Назад на главную</a>
         </div>
         </section>
  </main>
 
   <script>
+    // Тексты для перевода
+    const translations = {
+      ru: {
+        "title": "Темы — CG Studio",
+        "nav_home": "Главная",
+        "nav_topics": "Разделы",
+        "nav_labs": "Презентации",
+        "nav_questions": "Вопросы",
+        "nav_tests": "Тесты",
+        "nav_video": "Видео материалы",
+        "page_title": "Темы курса",
+        "btn_open": "📄 Открыть задание",
+        "btn_back": "⬅ Назад на главную",
+        "footer": "© 2025 Компьютерная графика. Все права защищены.",
+        
+        // Практические работы
+        "practice7_title": "Практическая работа № 7",
+        "practice7_desc": "знакомство с программой After Effects",
+        "practice8_title": "Практическая работа № 8",
+        "practice8_desc": "элементы интерфейса (панели, таймлайн, композиция)",
+        "practice9_title": "Практическая работа № 9",
+        "practice9_desc": "создание композиции (композиции)",
+        "practice10_title": "Практическая работа № 10",
+        "practice10_desc": "Работа со слоями (Layers: Text, Solid, Null, Shape)",
+        "practice11_title": "Практическая работа № 11",
+        "practice11_desc": "временная шкала и ключевые кадры",
+        "practice12_title": "Практическая работа № 12",
+        "practice12_desc": "основы анимации. Свойства Transform.",
+        "practice13_title": "Практическая работа № 13",
+        "practice13_desc": "Easy Ease и графический редактор",
+        "practice14_title": "Практическая работа № 14",
+        "practice14_desc": "ввод и обработка текста и анимация",
+        "practice15_title": "Практическая работа № 15",
+        "practice15_desc": "Shape Layer и маски и анимация",
+        "practice16_title": "Практическая работа № 16",
+        "practice16_desc": "Cредства маски (Mask). Track Matte.",
+        "practice17_title": "Практическая работа № 17",
+        "practice17_desc": "Применение эффектов",
+        "practice18_title": "Практическая работа № 18",
+        "practice18_desc": "Различные видеоэффекты (Blur, Glow, Color Correction)",
+        "practice19_title": "Практическая работа № 19",
+        "practice19_desc": "Добавление 3D слоев. Виртуальная камера и свет",
+        "practice20_title": "Практическая работа № 20",
+        "practice20_desc": "Применение Depth of Field. Motion Tracking"
+      },
+      kz: {
+        "title": "Тақырыптар — CG Studio",
+        "nav_home": "Басты",
+        "nav_topics": "Бөлімдер",
+        "nav_labs": "Презентациялар",
+        "nav_questions": "Сұрақтар",
+        "nav_tests": "Тесттер",
+        "nav_video": "Бейне материалдар",
+        "page_title": "Курс тақырыптары",
+        "btn_open": "📄 Тапсырманы ашу",
+        "btn_back": "⬅ Басты бетке оралу",
+        "footer": "© 2025 Компьютерлік графика. Барлық құқықтар қорғалған.",
+        
+        // Практические работы
+        "practice7_title": "Практикалық жұмыс № 7",
+        "practice7_desc": "After Effects бағдарламасымен танысу",
+        "practice8_title": "Практикалық жұмыс № 8",
+        "practice8_desc": "интерфейс элементтері (панельдер, таймлайн, композиция)",
+        "practice9_title": "Практикалық жұмыс № 9",
+        "practice9_desc": "композиция жасау (композициялар)",
+        "practice10_title": "Практикалық жұмыс № 10",
+        "practice10_desc": "Қабаттармен жұмыс (Layers: Text, Solid, Null, Shape)",
+        "practice11_title": "Практикалық жұмыс № 11",
+        "practice11_desc": "уақыт сызығы және кілт кадрлар",
+        "practice12_title": "Практикалық жұмыс № 12",
+        "practice12_desc": "анимация негіздері. Transform қасиеттері.",
+        "practice13_title": "Практикалық жұмыс № 13",
+        "practice13_desc": "Easy Ease және графикалық редактор",
+        "practice14_title": "Практикалық жұмыс № 14",
+        "practice14_desc": "мәтін енгізу және өңдеу және анимация",
+        "practice15_title": "Практикалық жұмыс № 15",
+        "practice15_desc": "Shape Layer және маскалар және анимация",
+        "practice16_title": "Практикалық жұмыс № 16",
+        "practice16_desc": "Маска құралдары (Mask). Track Matte.",
+        "practice17_title": "Практикалық жұмыс № 17",
+        "practice17_desc": "Эффектілерді қолдану",
+        "practice18_title": "Практикалық жұмыс № 18",
+        "practice18_desc": "Әртүрлі бейне эффектілері (Blur, Glow, Color Correction)",
+        "practice19_title": "Практикалық жұмыс № 19",
+        "practice19_desc": "3D қабаттарды қосу. Виртуалды камера және жарық",
+        "practice20_title": "Практикалық жұмыс № 20",
+        "practice20_desc": "Depth of Field қолдану. Motion Tracking"
+      }
+    };
+
+    // Текущий язык
+    let currentLang = 'ru';
+
+    // Функция для применения перевода
+    function applyTranslation(lang) {
+      currentLang = lang;
+      const elements = document.querySelectorAll('[data-translate]');
+      
+      // Обновляем тексты
+      elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[lang][key];
+          } else if (element.tagName === 'TITLE') {
+            document.title = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+
+      // Обновляем ссылки
+      document.querySelectorAll('a.btn').forEach(btn => {
+        const ruLink = btn.getAttribute('data-ru');
+        const kzLink = btn.getAttribute('data-kz');
+        if (ruLink && kzLink) {
+          btn.href = lang === 'kz' ? kzLink : ruLink;
+        }
+      });
+
+      // Обновляем атрибут lang у html элемента
+      document.documentElement.lang = lang;
+      
+      // Обновляем активную кнопку
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Обновляем футер
+      const footer = document.querySelector('footer');
+      if (footer && translations[lang] && translations[lang]['footer']) {
+        footer.textContent = translations[lang]['footer'];
+      }
+
+      // Сохраняем выбор в localStorage
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    // Обработчики событий для кнопок переключения языка
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        applyTranslation(lang);
+      });
+    });
+
+    // При загрузке страницы проверяем сохраненный язык или язык браузера
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('preferred-language');
+      const browserLang = navigator.language.split('-')[0];
+      
+      if (savedLang) {
+        applyTranslation(savedLang);
+      } else if (browserLang === 'kk' || browserLang === 'kz') {
+        applyTranslation('kz');
+      } else {
+        applyTranslation('ru');
+      }
+    });
+
+    // FAQ функционал
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.addEventListener('click', ()=> {
         item.classList.toggle('active');

@@ -3,31 +3,29 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Задания — CG Studio</title>
+  <title data-translate="title">Презентации — CG Studio</title>
   <style>
     :root{--pink:#ff4081;--pink-dark:#ff1c63}
     *{box-sizing:border-box}
     body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url("fon.jpg"); /* картинка фона */
-  background-size: cover;           /* растягивает на весь экран */
-  background-position: center;      /* выравнивание по центру */
-  background-attachment: fixed;     /* фикс при скролле */
-  color: white;
-}
-
-/* затемнение поверх фона, чтобы текст был читаемым */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* прозрачный чёрный слой */
-  z-index: -1; /* чтобы не перекрывать контент */
-}
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("fon.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
 
     header{position:fixed;top:0;left:0;right:0;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.25));border-bottom:1px solid rgba(255,255,255,0.04);z-index:1000}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
@@ -42,31 +40,60 @@ body::before {
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:20px}
     .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px;backdrop-filter:blur(6px);transition:transform .25s}
     .card:hover{transform:translateY(-6px)}
-    .card h4{color:#80d8ff;margin:0 0 8px}
+    .card h4{color:var(--pink);margin:0 0 8px}
     .card p{margin:0 0 12px;color:#d0d0d3}
     .btn{display:inline-block;padding:10px 18px;border-radius:12px;background:var(--pink);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(255,64,129,0.12)}
     .btn:hover{background:var(--pink-dark)}
     .back{display:inline-block;margin:28px auto 0;padding:10px 18px;background:#1976d2;border-radius:10px;color:#fff;text-decoration:none;font-weight:700}
     footer{padding:18px 20px;text-align:center;color:#a9a9ac;border-top:1px solid rgba(255,255,255,0.03)}
+    .lang-switcher {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 8px;
+      backdrop-filter: blur(6px);
+      z-index: 999;
+      box-shadow: 0 8px 20px rgba(255, 64, 129, 0.12);
+    }
+    .lang-btn {
+      padding: 8px 16px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-radius: 8px;
+      margin: 0 2px;
+      transition: all 0.3s;
+      color: #d0d0d3;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .lang-btn.active {
+      background: var(--pink);
+      color: white;
+      box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
+    }
   </style>
 </head>
 <body>
+  <!-- Переключатель языков -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="kz">KZ</button>
+  </div>
+
   <header>
     <div class="container">
       <nav>
         <div class="logo">CG</div>
-         <div>
-          <a href="index.html">Главная</a>
+        <div>
+          <a href="indexmane.html" data-translate="nav_home">Главная</a>
           &nbsp;&nbsp;
-          <a href="topics.html">Разделы</a>
+          <a href="index2.html" data-translate="nav_course2">Курс 2</a>
           &nbsp;&nbsp;
-          <a href="tasks.html">Лабораторные работы</a>
-          &nbsp;&nbsp;
-          <a href="vopros.html">Вопросы</a>
-          &nbsp;&nbsp;
-          <a href="test.html">Тесты</a>
-          &nbsp;&nbsp;
-          <a href="video.html">Видео материалы</a>
+          <a href="index.html" data-translate="nav_course3">Курс 3</a>
         </div>
       </nav>
     </div>
@@ -75,94 +102,437 @@ body::before {
   <main>
     <section>
       <div class="section-inner">
-        <h1>Лабораторные работы</h1>
+        <h1 data-translate="page_title">Презентации</h1>
 
         <div class="grid">
-          <div class="card">
-            <h4>Лабораторная  № 1</h4>
-            <p>Создание и редактирование рисунков Adobe Photoshop </p>
-            
-            <a class="btn" href="https://docs.google.com/document/d/1NIOaGFpnC3op4cKo5a-GgmunmLZ7IcZY/edit?usp=drive_web&ouid=111104216018894944267&rtpof=true" download>📄 Открыть задание</a>
-          </div>  
+          <!-- Презентации (вставлены в том же виде, что и у тебя; добавлены data-translate с ru/kz) -->
 
           <div class="card">
-            <h4>Лабораторная  № 2</h4>
-            <p>Коллаж и анимация</p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/141Z9cpix6dKDdtCcf-l003VtrFbAK6KC/edit#heading=h.x4vpgi9y81sf" download>📄 Открыть задание</a>
-          </div> 
-
-            <div class="card">
-            <h4>Лабораторная  № 3</h4>
-            <p> Работа с цветовой панелью</p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/1vVD676f0moQXfUN12wkGZByxMwpYmZjS/edit" download>📄 Открыть задание</a>
-          </div> 
-          
-                    <div class="card">
-            <h4>Лабораторная  № 4</h4>
-            <p>Редактирование рисунка с помощью меню Image</p>
-            <a class="btn" href="https://docs.google.com/document/d/1Z5iYnS8OFfpFDhmpvJMZymVdAh8Q99KO/edit" download>📄 Открыть задание</a>
-          </div> 
+            <h4 data-translate="pres1_title" data-ru="№1 — Знакомство с Adobe Illustrator" data-kz="№1 — Adobe Illustrator бағдарламасымен танысу">№1 — Знакомство с Adobe Illustrator</h4>
+            <p data-translate="pres1_desc" data-ru="Введение в программу Adobe Illustrator" data-kz="Adobe Illustrator бағдарламасына кіріспе">Введение в программу Adobe Illustrator</p>
+            <br><br><br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1SR106Ac4q_wCuRwivhMvk_bAf_pd7EFO/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1SR106Ac4q_wCuRwivhMvk_bAf_pd7EFO/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
 
           <div class="card">
-            <h4>Лабораторная  № 5</h4>
-            <p>Создание и редактирование рисунков в CorelDraw</p>
-            <a class="btn" href="https://docs.google.com/document/d/1wd3D3PDRGXj35EiD73gEWpAkpRkJBCaS/edit#heading=h.h96zihr84elc" download>📄 Открыть задание</a>
-          </div> 
+            <h4 data-translate="pres5_title" data-ru="№5 — Adobe Illustrator" data-kz="№5 — Adobe Illustrator">№5 — Adobe Illustrator</h4>
+            <p data-translate="pres5_desc" data-ru="Документ №5 по Adobe Illustrator" data-kz="Adobe Illustrator туралы №5 құжат">Документ №5 по Adobe Illustrator</p>
+            <br><br><br><br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1J61ByqYR-77xnFyPAIl4LKMsc4plUr60/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1J61ByqYR-77xnFyPAIl4LKMsc4plUr60/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
 
-            <div class="card">
-            <h4>Лабораторная  № 6</h4>
-            <p>Работа с текстом, таблицами </p>
-            <br>
-            <a class="btn" href="https://docs.google.com/document/d/1kmb6bvCGmob8uWPt2XU48hTD0_Baw3Zp9_d5zgqFv5k/edit?tab=t.0#heading=h.ppsr4mji5bsg" download>📄 Открыть задание</a>
-          </div> 
-                      <div class="card">
-            <h4>Лабораторная  № 7</h4>
-            <p>Создание и редактирование чертежа  </p>
-            <a class="btn" href="lab7.pdf" download>📄 Открыть задание</a>
-          </div> 
-          
-                    <div class="card">
-            <h4>Лабораторная  № 8</h4>
-            <p>Создание сборки в программе КОМПАС–3D</p>
-            <a class="btn" href="lab8.pdf" download>📄 Открыть задание</a>
-          </div> 
           <div class="card">
-            <h4>Лабораторная  № 9</h4>
-            <p>Создание и редактирование 3-d объектов в программе КОМПАС–3D</p>
-            <a class="btn" href="lab9.pdf" download>📄 Открыть задание</a>
-          </div> 
+            <h4 data-translate="pres6_title" data-ru="№6 — История создания и роль графического дизайнера" data-kz="№6 — Құру тарихы және графикалық дизайнердің рөлі">№6 — История создания и роль графического дизайнера</h4>
+            <p data-translate="pres6_desc" data-ru="История и роль графического дизайнера в профессиональной деятельности" data-kz="Графикалық дизайнердің кәсіби қызметіндегі тарихы мен рөлі">История и роль графического дизайнера в профессиональной деятельности</p>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1GZ1Mlop-ERcU8mzwkfi6GOlBCeJy808u/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1GZ1Mlop-ERcU8mzwkfi6GOlBCeJy808u/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
 
-            <div class="card">
-            <h4>Лабораторная  № 10</h4>
-            <p>Создание чертежа из спецификации</p>
+          <div class="card">
+            <h4 data-translate="pres7_title" data-ru="№7 — Практическая работа №1: Возможности Adobe Illustrator" data-kz="№7 — Практикалық жұмыс №1: Adobe Illustrator мүмкіндіктері">№7 — Практическая работа №1: Возможности Adobe Illustrator</h4>
+            <p data-translate="pres7_desc" data-ru="Возможности программы и связь с другими графическими приложениями" data-kz="Бағдарламаның мүмкіндіктері және басқа графикалық қосымшалармен байланысы">Возможности программы и связь с другими графическими приложениями</p>
             <br>
-            <a class="btn" href="https://docs.google.com/document/d/1h4DNxAwnsgBpJtA0hZDujoRYiVzKxDY8wuKi8sGPRDA/edit?tab=t.0#heading=h.dmng26ponyin" download>📄 Открыть задание</a>
-          </div> 
-                      <div class="card">
-            <h4>Лабораторная  № 11</h4>
-            <p>Операции трансформации объектов</p>
+            <a class="btn"
+               data-ru="https://docs.google.com/presentation/d/1SI1EgNYZMSu1aS8FcAdz4E8Cs9ts82NE/edit?usp=sharing&ouid=111104216018894944267&rtpof=true&sd=true"
+               data-kz="https://docs.google.com/presentation/d/1SI1EgNYZMSu1aS8FcAdz4E8Cs9ts82NE/edit?usp=sharing&ouid=111104216018894944267&rtpof=true&sd=true"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres8_title" data-ru="№8 — Практическая работа №2: Параметры и инструменты Adobe Illustrator" data-kz="№8 — Практикалық жұмыс №2: Adobe Illustrator параметрлері мен құралдары">№8 — Практическая работа №2: Параметры и инструменты Adobe Illustrator</h4>
+            <p data-translate="pres8_desc" data-ru="Настройки и инструменты Adobe Illustrator" data-kz="Adobe Illustrator баптаулары мен құралдары">Настройки и инструменты Adobe Illustrator</p>
+            <br> 
+            <a class="btn"
+               data-ru="https://docs.google.com/presentation/d/1eN3zkC-9RXRuidrxdP2z6BccpcG3W6Nd/edit?usp=sharing"
+               data-kz="https://docs.google.com/presentation/d/1eN3zkC-9RXRuidrxdP2z6BccpcG3W6Nd/edit?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres9_title" data-ru="№9 — Режимы отображения, линейки, масштабирование, навигация" data-kz="№9 — Көрсету режимдері, сызғыштар, масштабтау, навигация">№9 — Режимы отображения, линейки, масштабирование, навигация</h4>
+            <p data-translate="pres9_desc" data-ru="Интерфейс и инструменты навигации в графическом редакторе" data-kz="Графикалық редактордағы интерфейс және навигация құралдары">Интерфейс и инструменты навигации в графическом редакторе</p>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/101IwzAJhRO7RpiUPWrQn3t6aFM8kb7GE/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/101IwzAJhRO7RpiUPWrQn3t6aFM8kb7GE/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres10_title" data-ru="№10 — Лабораторная работа №1: Коллаж и анимация" data-kz="№10 — Зертханалық жұмыс №1: Коллаж және анимация">№10 — Лабораторная работа №1: Коллаж и анимация</h4>
+            <p data-translate="pres10_desc" data-ru="Коллаж и основы анимации" data-kz="Коллаж және анимация негіздері">Коллаж и основы анимации</p>
+            <br><br><br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1aLvt_pQh3Nx8Kdj5olZMR98kvvtFavWo/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1aLvt_pQh3Nx8Kdj5olZMR98kvvtFavWo/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres11_title" data-ru="№11 — Лабораторная работа №2: Создание объёмных изображений" data-kz="№11 — Зертханалық жұмыс №2: Көлемді кескіндер жасау">№11 — Лабораторная работа №2: Создание объёмных изображений</h4>
+            <p data-translate="pres11_desc" data-ru="Основы объёмного изображения и моделирования" data-kz="Көлемді кескін мен модельдеудің негіздері">Основы объёмного изображения и моделирования</p>
             <br>
-            <a class="btn" href="https://docs.google.com/document/d/1mOp0ohhk53zA1rom2PP2YgVqHAVkVr4I2o9Hqed2X00/edit?tab=t.0#heading=h.wsk5u6ae6fqf" download>📄 Открыть задание</a>
-          </div> 
-          
-                    <div class="card">
-            <h4>Лабораторная  № 12</h4>
-            <p>Ввод текста. Работа с объектами</p>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/16iHOQQryGuNMsGPNe-IohQiun84kdiGN/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/16iHOQQryGuNMsGPNe-IohQiun84kdiGN/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres15_title" data-ru="№15 — AutoCAD: графические редакторы" data-kz="№15 — AutoCAD: графикалық редакторлар">№15 — AutoCAD: графические редакторы</h4>
+            <p data-translate="pres15_desc" data-ru="AutoCAD — обзор графических инструментов" data-kz="AutoCAD — графикалық құралдарға шолу">AutoCAD — обзор графических инструментов</p>
+            <br><br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1RemT61wdOJvZVMwyqw5SxEoAgCQEER1Q/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1RemT61wdOJvZVMwyqw5SxEoAgCQEER1Q/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres16_title" data-ru="№16 — Основы рисования" data-kz="№16 — Сызба жасау негіздері">№16 — Основы рисования</h4>
+            <p data-translate="pres16_desc" data-ru="Техника и основы построения рисунка" data-kz="Сызу техникасы және негіздері">Техника и основы построения рисунка</p>
+            <br><br><br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/144XEephOSoCO4CDkOBLORVAQYr-AKlKZ/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/144XEephOSoCO4CDkOBLORVAQYr-AKlKZ/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres17_title" data-ru="№17 — Команды построения: эффективность и методы" data-kz="№17 — Құрылыс командалары: тиімділік пен әдістер">№17 — Команды построения: эффективность и методы</h4>
+            <p data-translate="pres17_desc" data-ru="Организация работы командами, методики повышения эффективности" data-kz="Командалық жұмысты ұйымдастыру және тиімділікті арттыру әдістері">Организация работы командами, методики повышения эффективности</p>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1RqEo8EBjNqxzSe-Y135zazOh6xLjgk9F/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1RqEo8EBjNqxzSe-Y135zazOh6xLjgk9F/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres18_title" data-ru="№18 — Вес линий (толщина линий)" data-kz="№18 — Сызықтардың салмағы (қалыңдығы)">№18 — Вес линий (толщина линий)</h4>
+            <p data-translate="pres18_desc" data-ru="Параметры веса линий и их влияние на изображение" data-kz="Сызықтардың салмағы мен бейнеге әсері">Параметры веса линий и их влияние на изображение</p>
+            <br><br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1XvteCc3jHE4LX_Vi1wYUvYnDmuH_EQUF/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1XvteCc3jHE4LX_Vi1wYUvYnDmuH_EQUF/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres19_title" data-ru="№19 — AutoCAD: основы работы" data-kz="№19 — AutoCAD: жұмыс істеу негіздері">№19 — AutoCAD: основы работы</h4>
+            <p data-translate="pres19_desc" data-ru="Работа в AutoCAD: базовые приёмы" data-kz="AutoCAD-та жұмыс істеудің негізгі әдістері">Работа в AutoCAD: базовые приёмы</p>
+            <br><br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/136Jb4AMilYoTNkVT32f1rWAxE4emNNwb/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/136Jb4AMilYoTNkVT32f1rWAxE4emNNwb/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres20_title" data-ru="№20 — Практическая работа №8: Создание основных примитивов" data-kz="№20 — Практикалық жұмыс №8: Негізгі примитивтерді құру">№20 — Практическая работа №8: Создание основных примитивов</h4>
+            <p data-translate="pres20_desc" data-ru="Построение основных примитивов" data-kz="Негізгі примитивтерді салу">Построение основных примитивов</p>
             <br>
-            <a class="btn" href="https://docs.google.com/document/d/1LIXu3FoR4QwY1KrqoRrpPTUzLwkJ65PklP40GqdlvMY/edit?tab=t.0#heading=h.wxuw56xkv4k9" download>📄 Открыть задание</a>
-          </div> 
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1xyiStHugnk2Qq8iXj9xyIMCY5wbXVIVb/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1xyiStHugnk2Qq8iXj9xyIMCY5wbXVIVb/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres21_title" data-ru="№21 — Практическая работа №9: Редактирование примитивов по примеру" data-kz="№21 — Практикалық жұмыс №9: Мысал бойынша примитивтерді өңдеу">№21 — Практическая работа №9: Редактирование примитивов по примеру</h4>
+            <p data-translate="pres21_desc" data-ru="Редактирование и трансформация примитивов" data-kz="Примитивтерді өңдеу және түрлендіру">Редактирование и трансформация примитивов</p>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1vc9zSuq4veMZULsLI2MJRYhH-7zwzxAB/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1vc9zSuq4veMZULsLI2MJRYhH-7zwzxAB/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres22_title" data-ru="№22 — Практическая работа №10: Типы линий. Создание нового типа линии" data-kz="№22 — Практикалық жұмыс №10: Сызық түрлері. Жаңа түр жасау">№22 — Практическая работа №10: Типы линий. Создание нового типа линии</h4>
+            <p data-translate="pres22_desc" data-ru="Виды линий и создание собственных шаблонов" data-kz="Сызық түрлері және өз үлгілерін жасау">Виды линий и создание собственных шаблонов</p>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/12VqKgRCkrlaENg5O5j0YYLJbWAsz3sme/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/12VqKgRCkrlaENg5O5j0YYLJbWAsz3sme/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres29_title" data-ru="№29 — Blender 3D: возможности и области применения" data-kz="№29 — Blender 3D: мүмкіндіктері мен қолдану салалары">№29 — Blender 3D: возможности и области применения</h4>
+            <p data-translate="pres29_desc" data-ru="Краткий обзор Blender и сфер использования" data-kz="Blender бағдарламасына шолу және қолдану салалары">Краткий обзор Blender и сфер использования</p>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/17VlzM9-rk5lPE7OGbsf--6I4W5h9oFXe/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/17VlzM9-rk5lPE7OGbsf--6I4W5h9oFXe/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres30_title" data-ru="№30 — Blender: возможности окна 3D View" data-kz="№30 — Blender: 3D View терезесінің мүмкіндіктері">№30 — Blender: возможности окна 3D View</h4>
+            <p data-translate="pres30_desc" data-ru="Инструменты и функции области 3D View в Blender" data-kz="Blender бағдарламасындағы 3D View аймағының құралдары мен функциялары">Инструменты и функции области 3D View в Blender</p>
+            <br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1FzcuJl-ROS8bcmOtKiqdgDCVjPc4ZTZo/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1FzcuJl-ROS8bcmOtKiqdgDCVjPc4ZTZo/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres31_title" data-ru="№31 — Знакомство с инструментами Blender" data-kz="№31 — Blender құралдарымен танысу">№31 — Знакомство с инструментами Blender</h4>
+            <p data-translate="pres31_desc" data-ru="Основные инструменты Blender" data-kz="Blender бағдарламасының негізгі құралдары">Основные инструменты Blender</p>
+            <br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1G_AOfFMpFsdHTveJsWeSJKBbjgWFgcrm/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1G_AOfFMpFsdHTveJsWeSJKBbjgWFgcrm/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres32_title" data-ru="№32 — 3D-моделирование" data-kz="№32 — 3D модельдеу">№32 — 3D-моделирование</h4>
+            <p data-translate="pres32_desc" data-ru="Процесс создания 3D-моделей" data-kz="3D модельдерді жасау үдерісі">Процесс создания 3D-моделей</p>
+            <br>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1gdugxia6kjKI4gyYNoU2Irnr2CgpT4u9/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1gdugxia6kjKI4gyYNoU2Irnr2CgpT4u9/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="pres33_title" data-ru="№33 — Работа с текстурами" data-kz="№33 — Текстуралармен жұмыс">№33 — Работа с текстурами</h4>
+            <p data-translate="pres33_desc" data-ru="Текстурирование моделей и материалы" data-kz="Модельдерді текстуралау және материалдар">Текстурирование моделей и материалы</p>
+            <a class="btn"
+               data-ru="https://drive.google.com/file/d/1gdugxia6kjKI4gyYNoU2Irnr2CgpT4u9/view?usp=sharing"
+               data-kz="https://drive.google.com/file/d/1gdugxia6kjKI4gyYNoU2Irnr2CgpT4u9/view?usp=sharing"
+               data-translate="btn_open"
+               target="_blank" rel="noopener">📄 Открыть презентацию</a>
+          </div>
+
         </div>
 
-        <div style="text-align:center">
-          <a class="back" href="index.html">⬅ Назад на главную</a>
+        <div style="text-align:center;margin-top:20px">
+          <a class="back" href="index.html" data-translate="btn_back">⬅ Назад на главную</a>
         </div>
-
       </div>
     </section>
   </main>
 
-  <footer>© 2025 Компьютерная графика. Все права защищены.</footer>
+  <footer data-translate="footer">© 2025 Компьютерная графика. Все права защищены.</footer>
+
+  <script>
+    // Тексты для перевода (дополнил ключи для всех презентаций)
+    const translations = {
+      ru: {
+        "title": "Презентации — CG Studio",
+        "nav_home": "Главная",
+        "nav_course2": "Курс 2",
+        "nav_course3": "Курс 3",
+        "page_title": "Презентации",
+        "btn_open": "📄 Открыть презентацию",
+        "btn_back": "⬅ Назад на главную",
+        "footer": "© 2025 Компьютерная графика. Все права защищены.",
+
+        // презентации (рус.)
+        "pres1_title":"№1 — Знакомство с Adobe Illustrator",
+        "pres1_desc":"Введение в программу Adobe Illustrator",
+        "pres5_title":"№5 — Adobe Illustrator",
+        "pres5_desc":"Документ №5 по Adobe Illustrator",
+        "pres6_title":"№6 — История создания и роль графического дизайнера",
+        "pres6_desc":"История и роль графического дизайнера в профессиональной деятельности",
+        "pres7_title":"№7 — Практическая работа №1: Возможности Adobe Illustrator",
+        "pres7_desc":"Возможности программы и связь с другими графическими приложениями",
+        "pres8_title":"№8 — Практическая работа №2: Параметры и инструменты Adobe Illustrator",
+        "pres8_desc":"Настройки и инструменты Adobe Illustrator",
+        "pres9_title":"№9 — Режимы отображения, линейки, масштабирование, навигация",
+        "pres9_desc":"Интерфейс и инструменты навигации в графическом редакторе",
+        "pres10_title":"№10 — Лабораторная работа №1: Коллаж и анимация",
+        "pres10_desc":"Коллаж и основы анимации",
+        "pres11_title":"№11 — Лабораторная работа №2: Создание объёмных изображений",
+        "pres11_desc":"Основы объёмного изображения и моделирования",
+        "pres15_title":"№15 — AutoCAD: графические редакторы",
+        "pres15_desc":"AutoCAD — обзор графических инструментов",
+        "pres16_title":"№16 — Основы рисования",
+        "pres16_desc":"Техника и основы построения рисунка",
+        "pres17_title":"№17 — Команды построения: эффективность и методы",
+        "pres17_desc":"Организация работы командами, методики повышения эффективности",
+        "pres18_title":"№18 — Вес линий (толщина линий)",
+        "pres18_desc":"Параметры веса линий и их влияние на изображение",
+        "pres19_title":"№19 — AutoCAD: основы работы",
+        "pres19_desc":"Работа в AutoCAD: базовые приёмы",
+        "pres20_title":"№20 — Практическая работа №8: Создание основных примитивов",
+        "pres20_desc":"Построение основных примитивов",
+        "pres21_title":"№21 — Практическая работа №9: Редактирование примитивов по примеру",
+        "pres21_desc":"Редактирование и трансформация примитивов",
+        "pres22_title":"№22 — Практическая работа №10: Типы линий. Создание нового типа линии",
+        "pres22_desc":"Виды линий и создание собственных шаблонов",
+        "pres29_title":"№29 — Blender 3D: возможности и области применения",
+        "pres29_desc":"Краткий обзор Blender и сфер использования",
+        "pres30_title":"№30 — Blender: возможности окна 3D View",
+        "pres30_desc":"Инструменты и функции области 3D View в Blender",
+        "pres31_title":"№31 — Знакомство с инструментами Blender",
+        "pres31_desc":"Основные инструменты Blender",
+        "pres32_title":"№32 — 3D-моделирование",
+        "pres32_desc":"Процесс создания 3D-моделей",
+        "pres33_title":"№33 — Работа с текстурами",
+        "pres33_desc":"Текстурирование моделей и материалы"
+      },
+      kz: {
+        "title": "Презентациялар — CG Studio",
+        "nav_home": "Басты бет",
+        "nav_course2": "2 курс",
+        "nav_course3": "3 курс",
+        "page_title": "Презентациялар",
+        "btn_open": "📄 Презентацияны ашу",
+        "btn_back": "⬅ Басты бетке",
+        "footer": "© 2025 Компьютерлік графика. Барлық құқықтар қорғалған.",
+
+        // презентации (каз.)
+        "pres1_title":"№1 — Adobe Illustrator бағдарламасымен танысу",
+        "pres1_desc":"Adobe Illustrator бағдарламасына кіріспе",
+        "pres5_title":"№5 — Adobe Illustrator",
+        "pres5_desc":"Adobe Illustrator туралы №5 құжат",
+        "pres6_title":"№6 — Құру тарихы және графикалық дизайнердің рөлі",
+        "pres6_desc":"Графикалық дизайнердің кәсіби қызметіндегі тарихы мен рөлі",
+        "pres7_title":"№7 — Практикалық жұмыс №1: Adobe Illustrator мүмкіндіктері",
+        "pres7_desc":"Бағдарламаның мүмкіндіктері және басқа графикалық қосымшалармен байланысы",
+        "pres8_title":"№8 — Практикалық жұмыс №2: Adobe Illustrator параметрлері мен құралдары",
+        "pres8_desc":"Adobe Illustrator баптаулары мен құралдары",
+        "pres9_title":"№9 — Көрсету режимдері, сызғыштар, масштабтау, навигация",
+        "pres9_desc":"Графикалық редактордағы интерфейс және навигация құралдары",
+        "pres10_title":"№10 — Зертханалық жұмыс №1: Коллаж және анимация",
+        "pres10_desc":"Коллаж және анимация негіздері",
+        "pres11_title":"№11 — Зертханалық жұмыс №2: Көлемді кескіндер жасау",
+        "pres11_desc":"Көлемді кескін мен модельдеудің негіздері",
+        "pres15_title":"№15 — AutoCAD: графикалық редакторлар",
+        "pres15_desc":"AutoCAD — графикалық құралдарға шолу",
+        "pres16_title":"№16 — Сызба жасау негіздері",
+        "pres16_desc":"Сызу техникасы және негіздері",
+        "pres17_title":"№17 — Құрылыс командалары: тиімділік пен әдістер",
+        "pres17_desc":"Командалық жұмысты ұйымдастыру және тиімділікті арттыру әдістері",
+        "pres18_title":"№18 — Сызықтардың салмағы (қалыңдығы)",
+        "pres18_desc":"Сызықтардың салмағы мен бейнеге әсері",
+        "pres19_title":"№19 — AutoCAD: жұмыс істеу негіздері",
+        "pres19_desc":"AutoCAD-та жұмыс істеудің негізгі әдістері",
+        "pres20_title":"№20 — Практикалық жұмыс №8: Негізгі примитивтерді құру",
+        "pres20_desc":"Негізгі примитивтерді салу",
+        "pres21_title":"№21 — Практикалық жұмыс №9: Мысал бойынша примитивтерді өңдеу",
+        "pres21_desc":"Примитивтерді өңдеу және түрлендіру",
+        "pres22_title":"№22 — Практикалық жұмыс №10: Сызық түрлері. Жаңа түр жасау",
+        "pres22_desc":"Сызық түрлері және өз үлгілерін жасау",
+        "pres29_title":"№29 — Blender 3D: мүмкіндіктері мен қолдану салалары",
+        "pres29_desc":"Blender бағдарламасына шолу және қолдану салалары",
+        "pres30_title":"№30 — Blender: 3D View терезесінің мүмкіндіктері",
+        "pres30_desc":"Blender бағдарламасындағы 3D View аймағының құралдары мен функциялары",
+        "pres31_title":"№31 — Blender құралдарымен танысу",
+        "pres31_desc":"Blender бағдарламасының негізгі құралдары",
+        "pres32_title":"№32 — 3D модельдеу",
+        "pres32_desc":"3D модельдерді жасау үдерісі",
+        "pres33_title":"№33 — Текстуралармен жұмыс",
+        "pres33_desc":"Модельдерді текстуралау және материалдар"
+      }
+    };
+
+    // Текущий язык
+    let currentLang = 'ru';
+
+    // Функция для применения перевода
+    function applyTranslation(lang) {
+      currentLang = lang;
+      const elements = document.querySelectorAll('[data-translate]');
+      
+      elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[lang][key];
+          } else if (element.tagName === 'TITLE') {
+            document.title = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+
+      // Обновляем ссылки и текст кнопок (кнопки имеют data-ru/data-kz для href и data-translate для текста)
+      document.querySelectorAll('a.btn').forEach(btn => {
+        const ruLink = btn.getAttribute('data-ru');
+        const kzLink = btn.getAttribute('data-kz');
+        if (ruLink && kzLink) {
+          btn.href = lang === 'kz' ? kzLink : ruLink;
+        } else if (ruLink) {
+          btn.href = ruLink;
+        }
+
+        // если у кнопки есть data-translate (btn_open) — текст поставит applyTranslation выше
+      });
+
+      // Обновляем атрибут lang у html элемента
+      document.documentElement.lang = lang;
+      
+      // Обновляем активную кнопку
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Обновляем футер (он уже в data-translate)
+      const footer = document.querySelector('footer');
+      if (footer && translations[lang] && translations[lang]['footer']) {
+        // уже обновится через data-translate, но на всякий случай:
+        // footer.textContent = translations[lang]['footer'];
+      }
+
+      // Сохраняем выбор в localStorage
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    // Обработчики событий для кнопок переключения языка
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        applyTranslation(lang);
+      });
+    });
+
+    // При загрузке страницы проверяем сохраненный язык или язык браузера
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('preferred-language');
+      const browserLang = navigator.language ? navigator.language.split('-')[0] : 'ru';
+      
+      if (savedLang) {
+        applyTranslation(savedLang);
+      } else if (browserLang === 'kk' || browserLang === 'kz') {
+        applyTranslation('kz');
+      } else {
+        applyTranslation('ru');
+      }
+    });
+  </script>
+
 </body>
 </html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-translate="title">Компьютерная графика — Главная</title>
+  <style>
+    :root {
+      --pink: #ff4081;
+      --pink-dark: #ff1c63;
+      --card-bg: rgba(255,255,255,0.04);
+    }
+
+    .lang-switcher {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 8px;
+      backdrop-filter: blur(6px);
+      z-index: 999;
+      box-shadow: 0 8px 20px rgba(255, 64, 129, 0.12);
+    }
+
+    .lang-btn {
+      padding: 8px 16px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-radius: 8px;
+      margin: 0 2px;
+      transition: all 0.3s;
+      color: #d0d0d3;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .lang-btn.active {
+      background: var(--pink);
+      color: white;
+      box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
+    }
+
+    * { box-sizing: border-box }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000A1C;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      height: 86vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-inner { max-width: 900px; }
+    .hero p { color: #cfcfd1; margin: 0 0 24px; font-size: 18px; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 12px;
+      background: var(--pink);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(255,64,129,0.12);
+      transition: all .22s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      background: var(--pink-dark);
+      box-shadow: 0 12px 30px rgba(255,64,129,0.22);
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ✅ Декоративные картинки */
+    .corner-img {
+      position: fixed;
+      width: 240px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 2;
+      transition: opacity 2s ease, filter 2s ease;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+    }
+
+    .corner-visible { opacity: 0.42; }
+
+    .top-left { top: 50px; left: 40px; animation-name: float1; }
+    .top-right { top: 50px; right: 40px; animation-name: float2; }
+    .bottom-left { bottom: 40px; left: 40px; animation-name: float3; }
+    .bottom-right { bottom: 40px; right: 40px; animation-name: float4; }
+
+    @keyframes float1 { 0%,100% {transform:translateY(0);} 50% {transform:translateY(-12px);} }
+    @keyframes float2 { 0%,100% {transform:translateX(0);} 50% {transform:translateX(10px);} }
+    @keyframes float3 { 0%,100% {transform:translateY(0);} 50% {transform:translateY(10px);} }
+    @keyframes float4 { 0%,100% {transform:translate(-0);} 50% {transform:translate(-10px);} }
+
+    /* ✨ Разное свечение */
+    .top-left { filter: drop-shadow(0 0 38px rgba(255,50,200,0.6)); }
+    .top-right { filter: drop-shadow(0 0 38px rgba(0,180,255,0.6)); }
+    .bottom-left { filter: drop-shadow(0 0 38px rgba(255,220,0,0.6)); }
+    .bottom-right { filter: drop-shadow(0 0 38px rgba(0,255,170,0.6)); }
+
+    @media (max-width: 1024px) { .corner-img { width: 180px; opacity: .3 } }
+    @media (max-width: 768px) { .corner-img { width: 140px; opacity: .2 } }
+    @media (max-width: 540px) { .corner-img { display: none; } }
+    footer {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.8;
+}
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Декоративные картинки -->
+  <img src="1.jpg" class="corner-img top-left">
+  <img src="2.jpg" class="corner-img top-right">
+  <img src="3.jpg" class="corner-img bottom-left">
+  <img src="4.jpg" class="corner-img bottom-right">
+
+  <!-- Переключатель языков -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="kz">KZ</button>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <video autoplay muted playsinline class="fade-in" width="900" height="500">
+          <source src="animation_100ms_once.webm" type="video/webm">
+          <source src="animsi.mp4" type="video/mp4">
+        </video>
+
+        <p data-translate="hero_text">Обучение современным методам работы с графикой, 3D и анимацией — теория и практика.</p>
+        <a href="index2.html" class="btn" data-translate="btn_topics">Перейти к курсу 2</a>
+        <a href="index.html" class="btn" data-translate="btn_topics2">Перейти к курсу 3</a>
+        <a href="tasks.html" class="btn" data-translate="btn_topics3">Презентации</a>
+      </div>
+    </section>
+  </main>
+
+  <footer data-translate="footer">
+    <p>© 2025 Компьютерная графика. Все права защищены.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      ru: {
+        "title": "Компьютерная графика — Главная",
+        "hero_text": "Обучение современным методам работы с графикой, 3D и анимацией — теория и практика.",
+        "btn_topics": "Перейти к курсу 2",
+        "btn_topics2": "Перейти к курсу 3",
+        "btn_topics3": "Перейти к презентациям",
+        "footer": "© 2025 Компьютерная графика. Все права защищены."
+      },
+      kz: {
+        "title": "Компьютерлік графика — Басты бет",
+        "hero_text": "Графика, 3D және анимациямен жұмыстың заманауи әдістерін үйрену — теория және практика.",
+        "btn_topics": "2 курсқа өтіңіз",
+        "btn_topics2": "3 курсқа өтіңіз",
+        "btn_topics3": "Презентацияларға өтіңіз",
+        "footer": "© 2025 Компьютерлік графика. Барлық құқықтар қорғалған."
+      }
+    };
+
+    function applyTranslation(lang) {
+      document.querySelectorAll("[data-translate]").forEach(el => {
+        const key = el.dataset.translate;
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.title = translations[lang]["title"];
+      document.documentElement.lang = lang;
+      localStorage.setItem("preferred-language", lang);
+      document.querySelectorAll(".lang-btn").forEach(btn =>
+        btn.classList.toggle("active", btn.dataset.lang === lang)
+      );
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn =>
+      btn.addEventListener("click", () => applyTranslation(btn.dataset.lang))
+    );
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("preferred-language");
+      applyTranslation(saved || "ru");
+
+      setTimeout(() => {
+        document.querySelectorAll(".corner-img")
+        .forEach(img => img.classList.add("corner-visible"));
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>

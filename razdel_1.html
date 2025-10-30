@@ -3,8 +3,50 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Темы — CG Studio</title>
+  <title data-translate="title">Темы — CG Studio</title>
   <style>
+    .lang-switcher {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 8px;
+        backdrop-filter: blur(6px);
+        z-index: 999;
+        box-shadow: 0 8px 20px rgba(255, 64, 129, 0.12);
+    }
+
+    .lang-btn {
+        padding: 8px 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-radius: 8px;
+        margin: 0 2px;
+        transition: all 0.3s;
+        color: #d0d0d3;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .lang-btn.active {
+        background: var(--pink);
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
+    }
+
+    .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--pink);
+    }
+
+    .lang-btn.active:hover {
+        background: var(--pink-dark);
+        color: white;
+    }
+    
     .faq-item{background:rgba(0,0,0,0.45);padding:14px;border-radius:10px;margin-bottom:12px;cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
     .faq-item h4{margin:0;color:var(--pink)}
     .faq-item .answer{display:none;margin-top:10px;color:#bdbcc0}
@@ -72,22 +114,28 @@
   </style>
 </head>
 <body>
+  <!-- Переключатель языков -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="kz">KZ</button>
+  </div>
+
   <header>
     <div class="container">
       <nav>
-        <div class="logo">CG</div>
-         <div>
-          <a href="index.html">Главная</a>
+        <div class="logo">CG 3 Курс</div>
+        <div>
+          <a href="index.html" data-translate="nav_home">Главная</a>
           &nbsp;&nbsp;
-          <a href="topics.html">Разделы</a>
+          <a href="topics.html" data-translate="nav_topics">Разделы</a>
           &nbsp;&nbsp;
-          <a href="tasks.html">Лабораторные работы</a>
+          <a href="tasks.html" data-translate="nav_labs">Презентации</a>
           &nbsp;&nbsp;
-          <a href="vopros.html">Вопросы</a>
+          <a href="vopros.html" data-translate="nav_questions">Вопросы</a>
           &nbsp;&nbsp;
-          <a href="test.html">Тесты</a>
+          <a href="test.html" data-translate="nav_tests">Тесты</a>
           &nbsp;&nbsp;
-          <a href="video.html">Видео материалы</a>
+          <a href="video.html" data-translate="nav_video">Видео материалы</a>
         </div>
       </nav>
     </div>
@@ -96,51 +144,337 @@
   <main>
     <section>
       <div class="section-inner">
-        <h1>Темы раздела</h1>
+        <h1 data-translate="page_title">Темы раздела</h1>
         
         <div class="grid">
+          <div class="card">
+            <h4 data-translate="topic1_title">Тема 1</h4>
+            <p data-translate="topic1_desc">Понятие, задачи и области применения компьютерной графики</p>
+            <br>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1lXc7ZLOpqnMca6FnJ9Pu6ZYL86u8ESFZfgFzMx-qAKk/edit?tab=t.0#heading=h.hkdig9vxoq1t"
+               data-kz="https://docs.google.com/document/d/1LUGdAvwVxzd12tgKLyqK0O4gly299gp9QO6g3tZyXA4/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
 
           <div class="card">
-            <h4>Тема 1</h4>
-            <p>Техника безопасности. Введение и основные понятия компьютерной графики. </p>
-            
-            <a class="btn" href="https://docs.google.com/document/d/1d0oVfkEaPUi05GnqEN31Us_JkYlrXfyo/edit" download>📄 Открыть задание</a>
+            <h4 data-translate="topic2_title">Тема 2</h4>
+            <p data-translate="topic2_desc">Характеристика цвета в компьютерной графике. Цветовые модели</p>
+            <br>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1XKwMoD87wK_qFncio2Vzt1Cb2w7ILyBKF9SUkwDUHcE/edit?tab=t.0#heading=h.u4ddlmfmhcka"
+               data-kz="https://docs.google.com/document/d/1opJQKnQZv6InXg-YpUE98SWSmc5fst75Q9Bxbhh5joQ/edit?tab=t.0#heading=h.opauvqxfzae8"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
           </div>
-            <div class="card">
-            <h4>Тема 2</h4>
-            <p>Виды компьютерной графики. Форматы графических файлов </p>
-            <br>
-            
-            <a class="btn" href="https://docs.google.com/document/d/1EyvRkBEkthYZJIaccUSr6lXKapXrDQKq/edit#heading=h.tdxqdnx4xazj" download>📄 Открыть задание</a>
-          </div>
-            <div class="card">
-            <h4>Практическая №1</h4>
-            <p>Представление графических данных Цветовые модели </p>
-            <br>
-            <br>
-            
-            <a class="btn" href="https://docs.google.com/document/d/1IcCgtvP4ufdsdU5e2rziqLaW4CSOtqf6/edit?usp=drive_web&ouid=111104216018894944267&rtpof=true" download>📄 Открыть задание</a>
-          </div>
-            <div class="card">
-            <h4>Практическая №2</h4>
-            <p>Редактор Adobe Photoshop</p>
-            <br>
-            <br>
-            <br>
-            
-            <a class="btn" href="https://docs.google.com/document/d/1RDsVnHZ2XUHmgu0cInutX962OhZAKhsh/edit?usp=drive_web&ouid=111104216018894944267&rtpof=true" download>📄 Открыть задание</a>
-          </div>
-           
-</div>
 
-      </div>
-       <div style="text-align:center">
-          <a class="back" href="index.html">⬅ Назад на главную</a>
+          <div class="card">
+            <h4 data-translate="topic3_title">Тема 3</h4>
+            <p data-translate="topic3_desc">Классификация компьютерной графики.</p>
+            <br><br>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/14fnOoEkAH4rIxssy8FdP3Ou6QoR2i-OTJChqr17Lzlo/edit?tab=t.0#heading=h.t8tdcci3yax9"
+               data-kz="https://docs.google.com/document/d/1PAbu78163Tf4g5hNWXiXZlb5wVWd3zCIanfAg9WIeps/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="topic4_title">Тема 4</h4>
+            <p data-translate="topic4_desc">Виды двумерной компьютерной графики: растровая, векторная, фрактальная графика.</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1ot-E7F6g-3sm-_huUhTAJKtvPk-eRVD1-lD8pcnbEPE/edit?tab=t.0#heading=h.9ymffhvag3b8"
+               data-kz="https://docs.google.com/document/d/1GVUFZ92SlesatoyGmHG_ZhDV7KISWW5uZfOgwWU9unI/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="practice1_title">Практическая работа №1.</h4>
+            <p data-translate="practice1_desc">графический редактор Adobe Illustrator</p>
+            <br><br>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1A-YfRURsx5bRRW1IVtInmYugmHzRVFXKYvH9xuF3Otk/edit?tab=t.0#heading=h.xrn298t28svj"
+               data-kz="https://docs.google.com/document/d/1umuFRyq-1OAIhH5HvkP9zY36359GL3eHZ2eMolWuPr8/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="practice2_title">Практическая работа №2.</h4>
+            <p data-translate="practice2_desc">История создания, роль графического дизайнера в профессиональной деятельности.</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1D6NDrTfghO8qcDUXYx4IhYP3b-hFIm7FK--DzmZsFdc/edit?tab=t.0#heading=h.byjyz6ektla"
+               data-kz="https://docs.google.com/document/d/1sJ8KBBUQbvsl3jiPh3q2CKhbthpfCmzBBmrJXnwdEk4/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="practice3_title">Практическая работа №3.</h4>
+            <p data-translate="practice3_desc">Возможности программы Adobe Illustrator и ее связь с другими графическими приложениями.</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1GtJCCsUl6sGDb9s-GYWOkQb5j0FbEFvRyay_WR7Tf7o/edit?tab=t.0#heading=h.sjmn2bfamhpu"
+               data-kz="https://docs.google.com/document/d/1q8VjRhy2asw6n7W5_uhaAYJLrOEyQ1DITd6YN66c3KU/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="practice4_title">Практическая работа №4.</h4>
+            <p data-translate="practice4_desc">Настройки и инструменты Adobe Illustrator</p>
+            <br><br>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1KMxCDxbpnZuFIVBFDBO_pjQzKWrEgEqL-EXUT6kJgx0/edit?tab=t.0#heading=h.etiv2jmzg8xq"
+               data-kz="https://docs.google.com/document/d/1F6gqXu5cH_xI3E6qRmCzI8UhDnRoi8T9P1hn3g9sTfs/edit?tab=t.0#heading=h.dspkwr8x78ev"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="practice5_title">Практическая работа №5.</h4>
+            <p data-translate="practice5_desc">Режимы отображения, измерительные линейки, масштабирование, навигация.</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1WJQWuLjuQcRjs8e-P-H2CE9APdbh6-t-EQv-axAJ9Xw/edit?tab=t.0#heading=h.jxohwv15lqxn"
+               data-kz="https://docs.google.com/document/d/1Q2pg2pL70Hv2NDzANC-OJ5PvAGVwdTTBFbSbz2I3mJE/edit?tab=t.0#heading=h.vici4r6z6h3m"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="practice6_title">Практическая работа № 6.</h4>
+            <p data-translate="practice6_desc">Создание иллюстраций в разных стилях</p>
+            <br><br>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1KRGZ7F0yTWKQ5MK9kTMRexYxcLQqL78iIVdpA975kYo/edit?tab=t.0#heading=h.3f26qlrwxjt6"
+               data-kz="https://docs.google.com/document/d/1TuJ6JlWWsW_28NBmYza0no_zCuEsLXdbfoqiw35BCYc/edit?tab=t.0#heading=h.x74r4qxmsxcz"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="lab1_title">Лабораторная работа №1</h4>
+            <p data-translate="lab1_desc">Коллаж и анимация</p>
+            <br><br><br>
+            <a class="btn"
+               data-ru="https://docs.google.com/document/d/1UoeM3hWnHIgTGH4Dc96K5J9F--wJtoBb4mHXoQm2pFM/edit?tab=t.0#heading=h.w2ihanmy4ajk"
+               data-kz="https://docs.google.com/document/d/1MPEsT89vq1j4zF5Kx8ZDiEfDAnJp16f-ZQMrJi6wKhc/edit?tab=t.0"
+               data-translate="btn_open"> 📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="lab2_title">Лабораторная работа №2.</h4>
+            <p data-translate="lab2_desc">создание объемных изображений</p>
+            <br><br>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1X-6Yp2jOeFWif1zQrs38T1EB9XNHxjstasSPpS7fOFg/edit?tab=t.0#heading=h.z8evicu6j9rs"
+               data-kz="https://docs.google.com/document/d/1jFcODk9q4sjrFHnTP38irYjkgzdGGlAigKhmeNZ4dcs/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="lab3_title">Лабораторная работа №3.</h4>
+            <p data-translate="lab3_desc">Создание и рисование основных фигур</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1K_jr05r_nbtyIXp5G7KqfrIsvz7RXXBLDbHlmlWyzDE/edit?tab=t.0#heading=h.lwr6fz4qwzcp"
+               data-kz="https://docs.google.com/document/d/1oEtyisvdFnwvX97zlhlD7gRMdx8piYreohfgza5jlUk/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="lab4_title">Лабораторная работа №4.</h4>
+            <p data-translate="lab4_desc">Создание сложных иллюстраций</p>
+            <a class="btn" 
+               data-ru="https://docs.google.com/document/d/1WgKMca1hdCtbdYuofuNk3p5LGfUnmbfWI2O3T0v91Og/edit?tab=t.0#heading=h.ngxsgl7c0bn9"
+               data-kz="https://docs.google.com/document/d/1ahzxEDITJL2kwPZgrFzMkDDIlJjiM0-fZz-0Be8ag18/edit?tab=t.0"
+               download 
+               data-translate="btn_open">📄 Открыть задание</a>
+          </div>
         </div>
+
+        <div style="text-align:center">
+          <a class="back" href="index.html" data-translate="btn_back">⬅ Назад на главную</a>
+        </div>
+      </div>
     </section>
   </main>
 
   <script>
+    // Тексты для перевода
+    const translations = {
+      ru: {
+        "title": "Темы — CG Studio",
+        "nav_home": "Главная",
+        "nav_topics": "Разделы",
+        "nav_labs": "Презентации",
+        "nav_questions": "Вопросы",
+        "nav_tests": "Тесты",
+        "nav_video": "Видео материалы",
+        "page_title": "Темы раздела",
+        "btn_open": "📄 Открыть задание",
+        "btn_back": "⬅ Назад на главную",
+        "footer": "© 2025 Компьютерная графика. Все права защищены.",
+        
+        // Темы
+        "topic1_title": "Тема 1",
+        "topic1_desc": "Понятие, задачи и области применения компьютерной графики",
+        "topic2_title": "Тема 2",
+        "topic2_desc": "Характеристика цвета в компьютерной графике. Цветовые модели",
+        "topic3_title": "Тема 3",
+        "topic3_desc": "Классификация компьютерной графики.",
+        "topic4_title": "Тема 4",
+        "topic4_desc": "Виды двумерной компьютерной графики: растровая, векторная, фрактальная графика.",
+        
+        // Практические работы
+        "practice1_title": "Практическая работа №1.",
+        "practice1_desc": "графический редактор Adobe Illustrator",
+        "practice2_title": "Практическая работа №2.",
+        "practice2_desc": "История создания, роль графического дизайнера в профессиональной деятельности.",
+        "practice3_title": "Практическая работа №3.",
+        "practice3_desc": "Возможности программы Adobe Illustrator и ее связь с другими графическими приложениями.",
+        "practice4_title": "Практическая работа №4.",
+        "practice4_desc": "Настройки и инструменты Adobe Illustrator",
+        "practice5_title": "Практическая работа №5.",
+        "practice5_desc": "Режимы отображения, измерительные линейки, масштабирование, навигация.",
+        "practice6_title": "Практическая работа № 6.",
+        "practice6_desc": "Создание иллюстраций в разных стилях",
+        
+        // Лабораторные работы
+        "lab1_title": "Лабораторная работа №1.",
+        "lab1_desc": "Коллаж и анимация",
+        "lab2_title": "Лабораторная работа №2.",
+        "lab2_desc": "создание объемных изображений",
+        "lab3_title": "Лабораторная работа №3.",
+        "lab3_desc": "Создание и рисование основных фигур",
+        "lab4_title": "Лабораторная работа №4.",
+        "lab4_desc": "Создание сложных иллюстраций"
+      },
+      kz: {
+        "title": "Тақырыптар — CG Studio",
+        "nav_home": "Басты",
+        "nav_topics": "Бөлімдер",
+        "nav_labs": "Презентациялар",
+        "nav_questions": "Сұрақтар",
+        "nav_tests": "Тесттер",
+        "nav_video": "Бейне материалдар",
+        "page_title": "Бөлім тақырыптары",
+        "btn_open": "📄 Тапсырманы ашу",
+        "btn_back": "⬅ Басты бетке оралу",
+        "footer": "© 2025 Компьютерлік графика. Барлық құқықтар қорғалған.",
+        
+        // Темы
+        "topic1_title": "Тақырып 1",
+        "topic1_desc": "Компьютерлік графиканың түсінігі, міндеттері және қолдану салалары",
+        "topic2_title": "Тақырып 2",
+        "topic2_desc": "Компьютерлік графикада түстің сипаттамасы. Түс модельдері",
+        "topic3_title": "Тақырып 3",
+        "topic3_desc": "Компьютерлік графиканың жіктелуі.",
+        "topic4_title": "Тақырып 4",
+        "topic4_desc": "Екі өлшемді компьютерлік графика түрлері: расторлық, векторлық, фракталды графика.",
+        
+        // Практические работы
+        "practice1_title": "Практикалық жұмыс №1.",
+        "practice1_desc": "графикалық редактор Adobe Illustrator",
+        "practice2_title": "Практикалық жұмыс №2.",
+        "practice2_desc": "Құрылу тарихы, графикалық дизайнердің кәсіби қызметіндегі рөлі.",
+        "practice3_title": "Практикалық жұмыс №3.",
+        "practice3_desc": "Adobe Illustrator бағдарламасының мүмкіндіктері және оның басқа графикалық қосымшалармен байланысы.",
+        "practice4_title": "Практикалық жұмыс №4.",
+        "practice4_desc": "Adobe Illustrator баптаулары мен құралдары",
+        "practice5_title": "Практикалық жұмыс №5.",
+        "practice5_desc": "Көрсету режимдері, өлшейтін сызғыштар, масштабтау, навигация.",
+        "practice6_title": "Практикалық жұмыс № 6.",
+        "practice6_desc": "Әр түрлі стильдерде иллюстрациялар жасау",
+        
+        // Лабораторные работы
+        "lab1_title": "Зертханалық жұмыс №1.",
+        "lab1_desc": "Коллаж және анимация",
+        "lab2_title": "Зертханалық жұмыс №2.",
+        "lab2_desc": "көлемді кескіндерді жасау",
+        "lab3_title": "Зертханалық жұмыс №3.",
+        "lab3_desc": "Негізгі фигураларды жасау және сызу",
+        "lab4_title": "Зертханалық жұмыс №4.",
+        "lab4_desc": "Күрделі иллюстрацияларды жасау"
+      }
+    };
+
+    // Текущий язык
+    let currentLang = 'ru';
+
+    // Функция для применения перевода
+    function applyTranslation(lang) {
+      currentLang = lang;
+      const elements = document.querySelectorAll('[data-translate]');
+      
+      elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[lang][key];
+          } else if (element.tagName === 'TITLE') {
+            document.title = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+
+      // Обновляем ссылки
+      document.querySelectorAll('a.btn').forEach(btn => {
+        const ruLink = btn.getAttribute('data-ru');
+        const kzLink = btn.getAttribute('data-kz');
+        if (ruLink && kzLink) {
+          btn.href = lang === 'kz' ? kzLink : ruLink;
+        }
+      });
+
+      // Обновляем атрибут lang у html элемента
+      document.documentElement.lang = lang;
+      
+      // Обновляем активную кнопку
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Обновляем футер
+      const footer = document.querySelector('footer');
+      if (footer && translations[lang] && translations[lang]['footer']) {
+        footer.textContent = translations[lang]['footer'];
+      }
+
+      // Сохраняем выбор в localStorage
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    // Обработчики событий для кнопок переключения языка
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        applyTranslation(lang);
+      });
+    });
+
+    // При загрузке страницы проверяем сохраненный язык или язык браузера
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('preferred-language');
+      const browserLang = navigator.language.split('-')[0];
+      
+      if (savedLang) {
+        applyTranslation(savedLang);
+      } else if (browserLang === 'kk' || browserLang === 'kz') {
+        applyTranslation('kz');
+      } else {
+        applyTranslation('ru');
+      }
+    });
+
+    // FAQ функционал
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.addEventListener('click', ()=> {
         item.classList.toggle('active');

@@ -3,8 +3,51 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Разделы</title>
+  <title data-translate="title">Разделы</title>
   <style>
+    /* Стили для переключателя языков */
+    .lang-switcher {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 8px;
+        backdrop-filter: blur(6px);
+        z-index: 999;
+        box-shadow: 0 8px 20px rgba(255, 64, 129, 0.12);
+    }
+
+    .lang-btn {
+        padding: 8px 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-radius: 8px;
+        margin: 0 2px;
+        transition: all 0.3s;
+        color: #d0d0d3;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .lang-btn.active {
+        background: var(--pink);
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
+    }
+
+    .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--pink);
+    }
+
+    .lang-btn.active:hover {
+        background: var(--pink-dark);
+        color: white;
+    }
+
     /* тот же стиль, чтобы страницы были одинаковы */
     :root{--pink:#ff4081;--pink-dark:#ff1c63}
     *{box-sizing:border-box}
@@ -52,22 +95,28 @@ body::before {
   </style>
 </head>
 <body>
+  <!-- Переключатель языков -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="kz">KZ</button>
+  </div>
+
   <header>
     <div class="container">
       <nav>
-        <div class="logo">CG</div>
+        <div class="logo">CG 3 Курс</div>
          <div>
-          <a href="index.html">Главная</a>
+          <a href="index.html" data-translate="nav_home">Главная</a>
           &nbsp;&nbsp;
-          <a href="topics.html">Разделы</a>
+          <a href="topics.html" data-translate="nav_topics">Разделы</a>
           &nbsp;&nbsp;
-          <a href="tasks.html">Лабораторные работы</a>
+          <a href="tasks.html" data-translate="nav_labs">Презентации</a>
           &nbsp;&nbsp;
-          <a href="vopros.html">Вопросы</a>
+          <a href="vopros.html" data-translate="nav_questions">Вопросы</a>
           &nbsp;&nbsp;
-          <a href="test.html">Тесты</a>
+          <a href="test.html" data-translate="nav_tests">Тесты</a>
           &nbsp;&nbsp;
-          <a href="video.html">Видео материалы</a>
+          <a href="video.html" data-translate="nav_video">Видео материалы</a>
         </div>
       </nav>
     </div>
@@ -76,63 +125,137 @@ body::before {
   <main>
     <section>
       <div class="section-inner">
-        <h1>Разделы курса</h1>
+        <h1 data-translate="page_title">Разделы курса</h1>
 
         <div class="grid">
           <div class="card">
-           <h4>Раздел 1 - Виды компьютерной графики </h4>
-            <p>Создавать визуальный дизайн элементов графического пользовательского интерфейса</p>
-            <a class="btn" href="razdel_1.html">➡ Открыть тему</a>
+           <h4 data-translate="section1_title">Раздел 1 - Adobe Illustrator</h4>
+            <p data-translate="section1_desc">графический редактор Adobe Illustrator и понимание компьютерной графики</p>
+            <a class="btn" href="razdel_1.html" data-translate="btn_open">➡ Открыть тему</a>
           </div>
 
           <div class="card">
-            <h4>Раздел 2. Программа редактирования Adobe Photoshop </h4>
-            <p>Подготавливать графические материалы для включения в графический интерфейс.</p>
-            <br>
-            <a class="btn" href="razdel_2.html">➡ Открыть тему</a>
+            <h4 data-translate="section2_title">Раздел 2. Adobe After Effects</h4>
+            <p data-translate="section2_desc">Adobe After Effects: используем основные инструменты анимации и редактирования видео</p>
+            <a class="btn" href="razdel_2.html" data-translate="btn_open">➡ Открыть тему</a>
           </div>
 
           <div class="card">
-            <h4>Раздел 3. Программа редактирования Adobe Photoshop </h4>
-            <p>Подготавливать макеты дизайна</p>
-            <br><br>
-            <a class="btn" href="razdel_3.html">➡ Открыть тему</a>
-          </div>
-
-                    <div class="card">
-            <h4>Раздел 4. Программа редактирования КОМПАС-3D.</h4>
-            <p>Подготавливать графические материалы для включения в графический интерфейс.</p>
-            <br>
-            <a class="btn" href="razdel_4.html">➡ Открыть тему</a>
-          </div>
-
-                    <div class="card">
-            <h4>Раздел 5. Программа редактирования AutoCAD.</h4>
-            <p>Рисование, обучение работе со слоями, 2-3D, создание объектов</p>
-            <a class="btn" href="razdel_5.html">➡ Открыть тему</a>
-          </div>
-
-                    <div class="card">
-            <h4>Раздел 6. Программа редактирования Adobe InDesign. </h4>
-            <p>Подготавливать макеты дизайна</p>
-            <a class="btn" href="razdel_6.html">➡ Открыть тему</a>
-          </div>
-
-                    <div class="card">
-            <h4>Раздел 7. Мультимедийные приложения. </h4>
-            <p>Возможность работы с форматами файлов</p>
-            <br>
-            <a class="btn" href="razdel_7.html">➡ Открыть тему</a>
+            <h4 data-translate="section3_title">Раздел 3. Блендер 3D</h4>
+            <p data-translate="section3_desc">Создание и редактирование 3D-моделей с помощью инструментов Blender</p>
+            <a class="btn" href="razdel_3.html" data-translate="btn_open">➡ Открыть тему</a>
           </div>
         </div>
 
         <div style="text-align:center">
-          <a class="back" href="index.html">⬅ Назад на главную</a>
+          <a class="back" href="index.html" data-translate="btn_back">⬅ Назад на главную</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>© 2025 Компьютерная графика. Все права защищены.</footer>
+  <footer data-translate="footer">© 2025 Компьютерная графика. Все права защищены.</footer>
+
+  <script>
+    // Тексты для перевода
+    const translations = {
+      ru: {
+        "title": "Разделы — CG Studio",
+        "nav_home": "Главная",
+        "nav_topics": "Разделы",
+        "nav_labs": "Презентации",
+        "nav_questions": "Вопросы",
+        "nav_tests": "Тесты",
+        "nav_video": "Видео материалы",
+        "page_title": "Разделы курса",
+        "btn_open": "➡ Открыть тему",
+        "btn_back": "⬅ Назад на главную",
+        "footer": "© 2025 Компьютерная графика. Все права защищены.",
+        
+        // Разделы
+        "section1_title": "Раздел 1 - Adobe Illustrator",
+        "section1_desc": "графический редактор Adobe Illustrator и понимание компьютерной графики",
+        "section2_title": "Раздел 2. Adobe After Effects",
+        "section2_desc": "Adobe After Effects: используем основные инструменты анимации и редактирования видео",
+        "section3_title": "Раздел 3. Блендер 3D",
+        "section3_desc": "Создание и редактирование 3D-моделей с помощью инструментов Blender"
+      },
+      kz: {
+        "title": "Бөлімдер — CG Studio",
+        "nav_home": "Басты",
+        "nav_topics": "Бөлімдер",
+        "nav_labs": "Презентациялар",
+        "nav_questions": "Сұрақтар",
+        "nav_tests": "Тесттер",
+        "nav_video": "Бейне материалдар",
+        "page_title": "Курс бөлімдері",
+        "btn_open": "➡ Тақырыпты ашу",
+        "btn_back": "⬅ Басты бетке оралу",
+        "footer": "© 2025 Компьютерлік графика. Барлық құқықтар қорғалған.",
+        
+        // Разделы
+        "section1_title": "Бөлім 1 - Adobe Illustrator",
+        "section1_desc": "графикалық редактор Adobe Illustrator және компьютерлік графиканы түсіну",
+        "section2_title": "Бөлім 2. Adobe After Effects",
+        "section2_desc": "Adobe After Effects: анимация мен бейнені өңдеудің негізгі құралдарын қолдану",
+        "section3_title": "Бөлім 3. Blender 3D",
+        "section3_desc": "Blender құралдарының көмегімен 3D-модельдерді жасау және өңдеу"
+      }
+    };
+
+    // Функция для применения перевода
+    function applyTranslation(lang) {
+      const elements = document.querySelectorAll('[data-translate]');
+      
+      elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[lang][key];
+          } else if (element.tagName === 'TITLE') {
+            document.title = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+
+      // Обновляем атрибут lang у html элемента
+      document.documentElement.lang = lang;
+      
+      // Обновляем активную кнопку
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Сохраняем выбор в localStorage
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    // Обработчики событий для кнопок переключения языка
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        applyTranslation(lang);
+      });
+    });
+
+    // При загрузке страницы проверяем сохраненный язык или язык браузера
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('preferred-language');
+      const browserLang = navigator.language.split('-')[0];
+      
+      if (savedLang) {
+        applyTranslation(savedLang);
+      } else if (browserLang === 'kk' || browserLang === 'kz') {
+        applyTranslation('kz');
+      } else {
+        applyTranslation('ru');
+      }
+    });
+  </script>
 </body>
 </html>
