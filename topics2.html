@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title data-translate="title">Разделы</title>
+  <style>
+    /* Стили для переключателя языков */
+    .lang-switcher {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 8px;
+        backdrop-filter: blur(6px);
+        z-index: 999;
+        box-shadow: 0 8px 20px rgba(255, 64, 129, 0.12);
+    }
+
+    .lang-btn {
+        padding: 8px 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-radius: 8px;
+        margin: 0 2px;
+        transition: all 0.3s;
+        color: #d0d0d3;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .lang-btn.active {
+        background: var(--pink);
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
+    }
+
+    .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--pink);
+    }
+
+    .lang-btn.active:hover {
+        background: var(--pink-dark);
+        color: white;
+    }
+
+    /* тот же стиль, чтобы страницы были одинаковы */
+    :root{--pink:#ff4081;--pink-dark:#ff1c63}
+    *{box-sizing:border-box}
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("fon.jpg"); /* картинка фона */
+  background-size: cover;           /* растягивает на весь экран */
+  background-position: center;      /* выравнивание по центру */
+  background-attachment: fixed;     /* фикс при скролле */
+  color: white;
+}
+
+/* затемнение поверх фона, чтобы текст был читаемым */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* прозрачный чёрный слой */
+  z-index: -1; /* чтобы не перекрывать контент */
+}
+
+    header{position:fixed;top:0;left:0;right:0;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.25));border-bottom:1px solid rgba(255,255,255,0.04);z-index:1000}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{font-weight:700;color:var(--pink)}
+    nav a{color:inherit;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--pink)}
+    main{padding-top:72px}
+    section{padding:60px 20px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    h1{text-align:center;margin:0 0 18px;text-shadow:0 0 20px rgba(255,64,129,0.12)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:20px}
+    .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px;backdrop-filter:blur(6px);transition:transform .25s}
+    .card:hover{transform:translateY(-6px)}
+    .card h4{color:var(--pink);margin:0 0 8px}
+    .card p{margin:0 0 12px;color:#d0d0d3}
+    .btn{display:inline-block;padding:10px 18px;border-radius:12px;background:var(--pink);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(255,64,129,0.12)}
+    .btn:hover{background:var(--pink-dark)}
+    .back{display:inline-block;margin:28px auto 0;padding:10px 18px;background:#1976d2;border-radius:10px;color:#fff;text-decoration:none;font-weight:700}
+    footer{padding:18px 20px;text-align:center;color:#a9a9ac;border-top:1px solid rgba(255,255,255,0.03)}
+  </style>
+</head>
+<body>
+  <!-- Переключатель языков -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="kz">KZ</button>
+  </div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">CG 2 Курс</div>
+         <div>
+          <a href="index2.html" data-translate="nav_home">Главная</a>
+          &nbsp;&nbsp;
+          <a href="topics2.html" data-translate="nav_topics">Разделы</a>
+          &nbsp;&nbsp;
+          <a href="tasks.html" data-translate="nav_labs">Презентации</a>
+          &nbsp;&nbsp;
+          <a href="test2.html" data-translate="nav_tests">Тесты</a>
+          &nbsp;&nbsp;
+          <a href="video2.html" data-translate="nav_video">Видео материалы</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-inner">
+        <h1 data-translate="page_title">Разделы курса</h1>
+
+        <div class="grid">
+          <div class="card">
+           <h4 data-translate="section1_title">Раздел 1 - Adobe Photoshop</h4>
+            <p data-translate="section1_desc">Компьютерная графика и работа в программе Adobe Photoshop</p>
+            <a class="btn" href="razdel_1_2.html" data-translate="btn_open">➡ Открыть тему</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="section2_title">Раздел 2. Adobe Illustrator</h4>
+            <p data-translate="section2_desc">Векторный графический редактор Adobe Illustrator</p>
+            <a class="btn" href="razdel_2_2.html" data-translate="btn_open">➡ Открыть тему</a>
+          </div>
+
+          <div class="card">
+            <h4 data-translate="section3_title">Раздел 3. Adobe Illustrator</h4>
+            <p data-translate="section3_desc">Творческая работа и композиция в Adobe Illustrator</p>
+            <a class="btn" href="razdel_3_2.html" data-translate="btn_open">➡ Открыть тему</a>
+          </div>
+          <div class="card">
+            <h4 data-translate="section4_title">Раздел 4. AutoCAD</h4>
+            <p data-translate="section4_desc">Программа редактирования AutoCAD.</p>
+            <a class="btn" href="razdel_4_2.html" data-translate="btn_open">➡ Открыть тему</a>
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <a class="back" href="index2.html" data-translate="btn_back">⬅ Назад на главную</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-translate="footer">© 2025 Компьютерная графика. Все права защищены.</footer>
+
+  <script>
+    // Тексты для перевода
+    const translations = {
+      ru: {
+        "title": "Разделы — CG Studio",
+        "nav_home": "Главная",
+        "nav_topics": "Разделы",
+        "nav_labs": "Презентации",
+        "nav_questions": "Вопросы",
+        "nav_tests": "Тесты",
+        "nav_video": "Видео материалы",
+        "page_title": "Разделы курса",
+        "btn_open": "➡ Открыть тему",
+        "btn_back": "⬅ Назад на главную",
+        "footer": "© 2025 Компьютерная графика. Все права защищены.",
+        
+        // Разделы
+        "section1_title": "Раздел 1 - Adobe Photoshop",
+        "section1_desc": "Компьютерная графика и работа в программе Adobe Photoshop",
+        "section2_title": "Раздел 2. Adobe Illustrator",
+        "section2_desc": "Векторный графический редактор Adobe Illustrator",
+        "section3_title": "Раздел 3. Adobe Illustrator",
+        "section3_desc": "Творческая работа и композиция в Adobe Illustrator",
+        "section4_title": "Раздел 4. AutoCAD",
+        "section4_desc": "Программа редактирования AutoCAD."
+      },
+      kz: {
+        "title": "Бөлімдер — CG Studio",
+        "nav_home": "Басты",
+        "nav_topics": "Бөлімдер",
+        "nav_labs": "Презентациялар",
+        "nav_questions": "Сұрақтар",
+        "nav_tests": "Тесттер",
+        "nav_video": "Бейне материалдар",
+        "page_title": "Курс бөлімдері",
+        "btn_open": "➡ Тақырыпты ашу",
+        "btn_back": "⬅ Басты бетке оралу",
+        "footer": "© 2025 Компьютерлік графика. Барлық құқықтар қорғалған.",
+        
+        // Разделы
+        "section1_title": "Бөлім 1 - Adobe Photoshop",
+        "section1_desc": "Компьютерлік графика және Adobe Photoshop бағдарламасында жұмыс",
+        "section2_title": "Бөлім 2. Adobe Illustrator",
+        "section2_desc": "Adobe Illustrator векторлық графикалық редакторы",
+        "section3_title": "Бөлім 3. Adobe Illustrator",
+        "section3_desc": "Adobe Illustrator бағдарламасында шығармашылық жұмыс және композиция",
+        "section4_title": "Бөлім 4. AutoCAD",
+        "section4_desc": "AutoCAD өңдеу бағдарламасы."
+      }
+    };
+
+    // Функция для применения перевода
+    function applyTranslation(lang) {
+      const elements = document.querySelectorAll('[data-translate]');
+      
+      elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[lang][key];
+          } else if (element.tagName === 'TITLE') {
+            document.title = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+
+      // Обновляем атрибут lang у html элемента
+      document.documentElement.lang = lang;
+      
+      // Обновляем активную кнопку
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Сохраняем выбор в localStorage
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    // Обработчики событий для кнопок переключения языка
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        applyTranslation(lang);
+      });
+    });
+
+    // При загрузке страницы проверяем сохраненный язык или язык браузера
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('preferred-language');
+      const browserLang = navigator.language.split('-')[0];
+      
+      if (savedLang) {
+        applyTranslation(savedLang);
+      } else if (browserLang === 'kk' || browserLang === 'kz') {
+        applyTranslation('kz');
+      } else {
+        applyTranslation('ru');
+      }
+    });
+  </script>
+</body>
+</html>

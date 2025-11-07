@@ -10,115 +10,223 @@
       --pink-dark: #ff1c63;
       --card-bg: rgba(255,255,255,0.04);
     }
-    
-    /* Стили для переключателя языков */
-    .lang-switcher {
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 12px;
-        padding: 8px;
-        backdrop-filter: blur(6px);
-        z-index: 999;
-        box-shadow: 0 8px 20px rgba(255, 64, 129, 0.12);
-    }
 
-    .lang-btn {
-        padding: 8px 16px;
-        border: none;
-        background: none;
-        cursor: pointer;
-        border-radius: 8px;
-        margin: 0 2px;
-        transition: all 0.3s;
-        color: #d0d0d3;
-        font-weight: 600;
-        font-size: 14px;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .lang-btn.active {
-        background: var(--pink);
-        color: white;
-        box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
-    }
-
-    .lang-btn:hover {
-        background: rgba(255, 255, 255, 0.08);
-        color: var(--pink);
-    }
-
-    .lang-btn.active:hover {
-        background: var(--pink-dark);
-        color: white;
-    }
-    
-    *{box-sizing:border-box}
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #000A1C; /* Темносиний фон */
+      background: #000A1C;
       color: white;
+      overflow-x: hidden;
     }
+
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
       backdrop-filter: blur(6px);
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       border-bottom: 1px solid rgba(255,255,255,0.04);
       z-index: 1000;
     }
-    .container {max-width:1200px;margin:0 auto;padding:0 20px;}
-    nav {display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
-    .logo {font-weight:700;color:var(--pink);}
-    nav a {color:inherit;text-decoration:none;font-weight:600;}
-    nav a:hover {color:var(--pink);}
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .logo { font-weight: 700; color: var(--pink); font-size: 20px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover { color: var(--pink); }
+
+    /* Бургер-меню */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      gap: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Языковой переключатель */
+    .lang-switcher {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 6px;
+      backdrop-filter: blur(6px);
+      z-index: 999;
+    }
+
+    .lang-btn {
+      padding: 6px 12px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-radius: 8px;
+      margin: 0 2px;
+      transition: all 0.3s;
+      color: #d0d0d3;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .lang-btn.active {
+      background: var(--pink);
+      color: white;
+      box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--pink);
+    }
+
+    .lang-btn.active:hover {
+      background: var(--pink-dark);
+      color: white;
+    }
+
+    main { padding-top: 78px; }
+
     .hero {
-      height:86vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:0 20px;
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
     }
-    .hero-inner {max-width:900px;}
-    .hero p {color:#cfcfd1;margin:0 0 24px;font-size:18px;}
+
+    .hero-inner { max-width: 900px; }
+
+    video {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #cfcfd1;
+      margin-bottom: 24px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
     .btn {
-      display:inline-block;
-      padding:12px 26px;
-      border-radius:12px;
-      background:var(--pink);
-      color:#fff;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:0 6px 20px rgba(255,64,129,0.12);
-      transition:all .22s;
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: var(--pink);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(255,64,129,0.12);
+      transition: all 0.22s;
     }
+
     .btn:hover {
-      transform:translateY(-3px);
-      background:var(--pink-dark);
-      box-shadow:0 12px 30px rgba(255,64,129,0.22);
+      transform: translateY(-3px);
+      background: var(--pink-dark);
+      box-shadow: 0 12px 30px rgba(255,64,129,0.22);
     }
-    main {padding-top:78px;}
+
     footer {
-      padding:18px 20px;
-      text-align:center;
-      color:#a9a9ac;
-      border-top:1px solid rgba(255,255,255,0.03);
-      background:transparent;
+      padding: 18px 20px;
+      text-align: center;
+      color: #a9a9ac;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.01);
+      font-size: 14px;
     }
+
+    /* Анимация */
     .fade-in {
       opacity: 0;
-      animation: fadeIn 2s ease forwards;
+      animation: fadeIn 1.5s ease forwards;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* 📱 Мобильная адаптация */
+    @media (max-width: 768px) {
+      .lang-switcher { top: 68px; right: 10px; padding: 4px; }
+      .logo { font-size: 18px; }
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      video { max-width: 100%; height: auto; }
+      .hero p { font-size: 16px; }
+      .btn { font-size: 15px; padding: 10px 18px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 20px 10px; }
+      .hero p { font-size: 15px; }
+      .btn { width: 100%; max-width: 260px; display: block; margin: 0 auto; }
+      .lang-btn { font-size: 13px; padding: 5px 10px; }
+    }
   </style>
 </head>
 <body>
+
   <!-- Переключатель языков -->
   <div class="lang-switcher">
     <button class="lang-btn active" data-lang="ru">RU</button>
@@ -129,17 +237,17 @@
     <div class="container">
       <nav>
         <div class="logo">CG 3 Курс</div>
-        <div>
+
+        <!-- Кнопка бургер -->
+        <div class="menu-toggle" id="menuToggle">
+          <span></span><span></span><span></span>
+        </div>
+
+        <div class="nav-links" id="navLinks">
           <a href="index3.html" data-translate="nav_home">Главная</a>
-          &nbsp;&nbsp;
           <a href="topics.html" data-translate="nav_topics">Разделы</a>
-          &nbsp;&nbsp;
           <a href="tasks.html" data-translate="nav_labs">Презентации</a>
-          &nbsp;&nbsp;
-          <a href="vopros.html" data-translate="nav_questions">Вопросы</a>
-          &nbsp;&nbsp;
           <a href="test.html" data-translate="nav_tests">Тесты</a>
-          &nbsp;&nbsp;
           <a href="video.html" data-translate="nav_video">Видео материалы</a>
         </div>
       </nav>
@@ -148,15 +256,8 @@
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <video 
-          autoplay 
-          muted 
-          playsinline 
-          class="fade-in"
-          width="900" height="500"
-          style="background:transparent; border:none;"
-          onended="this.pause(); this.currentTime=this.duration;">
+      <div class="hero-inner fade-in">
+        <video autoplay muted playsinline>
           <source src="animation_100ms_once.webm" type="video/webm">
           <source src="animsi.mp4" type="video/mp4">
           <span data-translate="video_not_supported">Ваш браузер не поддерживает видео.</span>
@@ -173,7 +274,7 @@
   </footer>
 
   <script>
-    // Тексты для перевода
+    // Переводы
     const translations = {
       ru: {
         "title": "Компьютерная графика — Главная",
@@ -203,59 +304,37 @@
       }
     };
 
-    // Функция для применения перевода
     function applyTranslation(lang) {
-      const elements = document.querySelectorAll('[data-translate]');
-      
-      elements.forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
-          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-            element.placeholder = translations[lang][key];
-          } else if (element.tagName === 'TITLE') {
-            document.title = translations[lang][key];
-          } else {
-            element.textContent = translations[lang][key];
-          }
-        }
+      document.querySelectorAll("[data-translate]").forEach(el => {
+        const key = el.dataset.translate;
+        if (translations[lang][key]) el.textContent = translations[lang][key];
       });
-
-      // Обновляем атрибут lang у html элемента
+      document.title = translations[lang]["title"];
       document.documentElement.lang = lang;
-      
-      // Обновляем активную кнопку
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('data-lang') === lang) {
-          btn.classList.add('active');
-        }
-      });
-
-      // Сохраняем выбор в localStorage
-      localStorage.setItem('preferred-language', lang);
+      localStorage.setItem("preferred-language", lang);
+      document.querySelectorAll(".lang-btn").forEach(btn =>
+        btn.classList.toggle("active", btn.dataset.lang === lang)
+      );
     }
 
-    // Обработчики событий для кнопок переключения языка
-    document.querySelectorAll('.lang-btn').forEach(button => {
-      button.addEventListener('click', function() {
-        const lang = this.getAttribute('data-lang');
-        applyTranslation(lang);
-      });
+    document.querySelectorAll(".lang-btn").forEach(btn =>
+      btn.addEventListener("click", () => applyTranslation(btn.dataset.lang))
+    );
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("preferred-language");
+      applyTranslation(saved || "ru");
     });
 
-    // При загрузке страницы проверяем сохраненный язык или язык браузера
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedLang = localStorage.getItem('preferred-language');
-      const browserLang = navigator.language.split('-')[0];
-      
-      if (savedLang) {
-        applyTranslation(savedLang);
-      } else if (browserLang === 'kk' || browserLang === 'kz') {
-        applyTranslation('kz');
-      } else {
-        applyTranslation('ru');
-      }
+    // Бургер-меню
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("active");
+      navLinks.classList.toggle("active");
     });
   </script>
+
 </body>
 </html>

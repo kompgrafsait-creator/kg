@@ -11,21 +11,43 @@
       --card-bg: rgba(255,255,255,0.04);
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #000A1C;
+      color: white;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* Переключатель языков */
     .lang-switcher {
       position: fixed;
-      top: 80px;
+      top: 70px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
-      padding: 8px;
+      padding: 6px;
       backdrop-filter: blur(6px);
       z-index: 999;
       box-shadow: 0 8px 20px rgba(255, 64, 129, 0.12);
     }
 
     .lang-btn {
-      padding: 8px 16px;
+      padding: 8px 14px;
       border: none;
       background: none;
       cursor: pointer;
@@ -43,30 +65,42 @@
       box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
     }
 
-    * { box-sizing: border-box }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000A1C;
-      color: white;
-      overflow-x: hidden;
-    }
-
+    /* Главный блок */
     .hero {
-      height: 86vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 0 20px;
+      padding: 40px 20px;
     }
 
-    .hero-inner { max-width: 900px; }
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     .hero p { color: #cfcfd1; margin: 0 0 24px; font-size: 18px; }
 
+    /* ✨ Надписи */
+    .college-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 64, 129, 0.4);
+    }
+
+    .teacher {
+      font-size: 18px;
+      color: #ddd;
+      margin-top: 16px;
+      text-align: center;
+      opacity: 0.9;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Кнопки */
     .btn {
       display: inline-block;
-      padding: 12px 26px;
+      padding: 12px 24px;
       border-radius: 12px;
       background: var(--pink);
       color: #fff;
@@ -74,26 +108,40 @@
       font-weight: 700;
       box-shadow: 0 6px 20px rgba(255,64,129,0.12);
       transition: all .22s;
+      margin: 8px;
+      font-size: 16px;
     }
+
     .btn:hover {
       transform: translateY(-3px);
       background: var(--pink-dark);
       box-shadow: 0 12px 30px rgba(255,64,129,0.22);
     }
 
+    /* Анимация */
     .fade-in {
       opacity: 0;
       animation: fadeIn 2s ease forwards;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Видео */
+    video {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 16px;
+      margin: 0 auto;
+      display: block;
+    }
+
     /* ✅ Декоративные картинки */
     .corner-img {
       position: fixed;
-      width: 240px;
+      width: 220px;
       opacity: 0;
       pointer-events: none;
       z-index: 2;
@@ -114,23 +162,38 @@
     @keyframes float3 { 0%,100% {transform:translateY(0);} 50% {transform:translateY(10px);} }
     @keyframes float4 { 0%,100% {transform:translate(-0);} 50% {transform:translate(-10px);} }
 
-    /* ✨ Разное свечение */
     .top-left { filter: drop-shadow(0 0 38px rgba(255,50,200,0.6)); }
     .top-right { filter: drop-shadow(0 0 38px rgba(0,180,255,0.6)); }
     .bottom-left { filter: drop-shadow(0 0 38px rgba(255,220,0,0.6)); }
     .bottom-right { filter: drop-shadow(0 0 38px rgba(0,255,170,0.6)); }
 
-    @media (max-width: 1024px) { .corner-img { width: 180px; opacity: .3 } }
-    @media (max-width: 768px) { .corner-img { width: 140px; opacity: .2 } }
-    @media (max-width: 540px) { .corner-img { display: none; } }
+    /* 📱 Оптимизация для телефонов */
+    @media (max-width: 768px) {
+      .college-title { font-size: 22px; margin-bottom: 16px; }
+      .teacher { font-size: 16px; }
+      .btn { font-size: 15px; padding: 10px 18px; }
+      video { border-radius: 12px; }
+      .corner-img { width: 140px; opacity: .25; }
+      .lang-switcher { top: 20px; right: 10px; padding: 4px; }
+    }
+
+    @media (max-width: 540px) {
+      .corner-img { display: none; }
+      .college-title { font-size: 20px; }
+      .teacher { font-size: 15px; }
+      .btn { display: block; width: 100%; max-width: 280px; margin: 10px auto; }
+    }
+
+    /* Футер */
     footer {
-  width: 100%;
-  text-align: center;
-  padding: 15px 0;
-  font-size: 14px;
-  color: #fff;
-  opacity: 0.8;
-}
+      text-align: center;
+      padding: 16px 0;
+      font-size: 14px;
+      color: #fff;
+      opacity: 0.85;
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
   </style>
 </head>
 <body>
@@ -149,13 +212,22 @@
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <video autoplay muted playsinline class="fade-in" width="900" height="500">
+      <div class="hero-inner fade-in">
+        <!-- 🏫 Название колледжа -->
+        <h1 class="college-title" data-translate="college_title">Карагандинский высший политехнический колледж</h1>
+
+        <!-- 🎞 Анимация -->
+        <video autoplay muted playsinline>
           <source src="animation_100ms_once.webm" type="video/webm">
           <source src="animsi.mp4" type="video/mp4">
         </video>
 
-        <p data-translate="hero_text">Обучение современным методам работы с графикой, 3D и анимацией — теория и практика.</p>
+        <!-- 👩‍🏫 Преподаватель -->
+        <p class="teacher" data-translate="teacher">Преподаватель: Жунисова Ж.Т.</p>
+
+        <p data-translate="hero_text">
+          Обучение современным методам работы с графикой, 3D и анимацией — теория и практика.
+        </p>
         <a href="index2.html" class="btn" data-translate="btn_topics">Перейти к курсу 2</a>
         <a href="index3.html" class="btn" data-translate="btn_topics2">Перейти к курсу 3</a>
         <a href="tasks.html" class="btn" data-translate="btn_topics3">Презентации</a>
@@ -164,13 +236,15 @@
   </main>
 
   <footer data-translate="footer">
-    <p>© 2025 Компьютерная графика. Все права защищены.</p>
+    © 2025 Компьютерная графика. Все права защищены.
   </footer>
 
   <script>
     const translations = {
       ru: {
         "title": "Компьютерная графика — Главная",
+        "college_title": "Карагандинский высший политехнический колледж",
+        "teacher": "Преподаватель: Жунисова Ж.Т.",
         "hero_text": "Обучение современным методам работы с графикой, 3D и анимацией — теория и практика.",
         "btn_topics": "Перейти к курсу 2",
         "btn_topics2": "Перейти к курсу 3",
@@ -179,6 +253,8 @@
       },
       kz: {
         "title": "Компьютерлік графика — Басты бет",
+        "college_title": "Қарағанды жоғары политехникалық колледжі",
+        "teacher": "Оқытушы: Жүнісова Ж.Т.",
         "hero_text": "Графика, 3D және анимациямен жұмыстың заманауи әдістерін үйрену — теория және практика.",
         "btn_topics": "2 курсқа өтіңіз",
         "btn_topics2": "3 курсқа өтіңіз",
@@ -210,7 +286,7 @@
 
       setTimeout(() => {
         document.querySelectorAll(".corner-img")
-        .forEach(img => img.classList.add("corner-visible"));
+          .forEach(img => img.classList.add("corner-visible"));
       }, 1500);
     });
   </script>
